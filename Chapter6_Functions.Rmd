@@ -16,6 +16,10 @@ Answer the following questions to see if you can safely skip this chapter. You c
 
 1.  What are the three components of a function?
 
+<details><summary>DROP ME</summary>
+body, args, env
+</details>  
+
 1.  What does the following code return?
 
     ```{r, eval = FALSE}
@@ -27,6 +31,12 @@ Answer the following questions to see if you can safely skip this chapter. You c
     }
     f1(1)()
     ```
+
+<details><summary>DROP ME</summary>
+
+[1] 11
+
+</details>  
     
 1.  How would you usually write this code?
 
