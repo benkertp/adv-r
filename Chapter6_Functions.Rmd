@@ -16,7 +16,7 @@ Answer the following questions to see if you can safely skip this chapter. You c
 
 1.  What are the three components of a function?
 
-<details><summary>DROP ME</summary>
+<details><summary>Show...</summary>
 body, args, env
 </details>  
 
@@ -32,7 +32,7 @@ body, args, env
     f1(1)()
     ```
 
-<details><summary>DROP ME</summary>
+<details><summary>Show...</summary>
 
 [1] 11
 
