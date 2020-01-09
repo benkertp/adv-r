@@ -14,7 +14,7 @@ Answer the following questions to see if you can safely skip this chapter. You c
 
 1.  What are the three components of a function?
 
-<details><summary>/Answer.../</summary>
+<details><summary>_Answer..._</summary>
 body, args, env
 </details>  
 
