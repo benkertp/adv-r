@@ -31,7 +31,7 @@ body, args, env
     f1(1)()
     ```
 
-<details><summary>Show...</summary>
+<details><summary>Show ...</summary>
 
 [1] 11
 
