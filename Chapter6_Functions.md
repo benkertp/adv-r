@@ -216,7 +216,7 @@ sum
 #> .Primitive("[")
 ```
 
-They have either type `builtin` or type `special`.
+They have either type **`builtin` or type `special`**.
 
 
 ```r
@@ -226,7 +226,7 @@ typeof(`[`)
 #> [1] "special"
 ```
 
-These functions exist primarily in C, not R, so their `formals()`, `body()`, and `environment()` are all `NULL`:  
+These functions exist primarily in C, not R, so their **`formals()`, `body()`, and `environment()` are all `NULL`**:  
 
 
 ```r
@@ -238,7 +238,7 @@ environment(sum)
 #> NULL
 ```
 
-Primitive functions are only found in the base package. While they have certain performance advantages, this benefit comes at a price: they are harder to write. For this reason, R-core generally avoids creating them unless there is no other option.
+Primitive functions are **only found in the base package**. While they have certain performance advantages, this benefit comes at a price: they are harder to write. For this reason, R-core generally avoids creating them unless there is no other option.
 
 <!-- HW: mention internal functions here too? Cross-reference to perf example -->
 
@@ -246,7 +246,7 @@ Primitive functions are only found in the base package. While they have certain 
 \index{functions!anonymous} 
 \index{anonymous functions}
 
-It's very important to understand that R functions are objects in their own right, a language property often called "first-class functions". Unlike in many other languages, there is no special syntax for defining and naming a function: you simply create a function object (with `function`) and bind it to a name with `<-`:
+**It's very important to understand that R functions are objects in their own right**, a language property often called "first-class functions". Unlike in many other languages, there is no special syntax for defining and naming a function: **you simply create a function object (with `function`) and bind it to a name with `<-`**:
 
 
 ```r
@@ -257,7 +257,7 @@ f01 <- function(x) {
 
 <img src="diagrams/functions/first-class.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
 
-While you almost always create a function and then bind it to a name, the binding step is not compulsory. If you choose not to give a function a name, you get an __anonymous function__. This is useful when it's not worth the effort to figure out a name:
+While you almost always create a function and then bind it to a **name, the binding step is not compulsory**. If you choose not to give a function a name, you get an __anonymous function__. This is useful when it's not worth the effort to figure out a name:
 
 
 ```r
@@ -266,7 +266,9 @@ Filter(function(x) !is.numeric(x), mtcars)
 integrate(function(x) sin(x) ^ 2, 0, pi)
 ```
 
-A final option is to put functions in a list:
+A final option is to **put functions in a list**:
+
+<!-- PB: Why should one? -->
 
 
 ```r
@@ -279,7 +281,9 @@ funs$double(10)
 #> [1] 20
 ```
 
-In R, you'll often see functions called __closures__. This name reflects the fact that R functions capture, or enclose, their environments, which you'll learn more about in Section \@ref(function-environments).
+In R, you'll often see functions called __closures__. This name reflects the fact that **R functions capture, or enclose, their environments**, which you'll learn more about in Section \@ref(function-environments).
+
+<!-- PB / TODO: Define closures more precisely ? -->
 
 ### Invoking a function
 \indexc{do.call()}
