@@ -349,7 +349,6 @@ We'll come back to this idea in Section \@ref(tidy-dots).
 1.  What function allows you to tell if an object is a function? What function
     allows you to tell if a function is a primitive function?
     
-<details><summary>Show ...</summary>
 
 
 ```r
@@ -406,7 +405,7 @@ mean.default
 #> <environment: namespace:base>
 ```
 
-</details>  
+
 
 1.  This code makes a list of all functions in the base package. 
     
