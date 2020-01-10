@@ -434,8 +434,10 @@ mean.default
   
  
  ```r
- function(x) {b=function(x) x; print(b)}
- #> function(x) {b=function(x) x; print(b)}
+ a <- function(x) {b <- function(x) x; print(b)}
+ a()
+ #> function(x) x
+ #> <environment: 0x3d42f58>
  ```
 </details>  
 ## Function composition {#function-composition}

@@ -363,7 +363,8 @@ mean.default
   - in GlobalEnv
   
  ```{r} 
-function(x) {b=function(x) x; print(b)}
+a <- function(x) {b <- function(x) x; print(b)}
+a()
 ```
 </details>  
 ## Function composition {#function-composition}
