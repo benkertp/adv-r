@@ -135,28 +135,6 @@ TODO!
 
 ## Function fundamentals
 
-<p style="color:red">my text here</p> 
-
-
-<span style="color: red;">text</span>
-
-
-<style>
-div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
-</style>
-<div class = "blue">
-
-- This is my first conclusion
-- This is my second conclusion
-
-</div>
-
-output:
-  html_document:
-    code_folding: "hide"
-    öfdfäsdöfäd
-
-
 To understand functions in R you need to internalise two important ideas:
 
 * Functions can be broken down into three components: arguments, body, and environment.
