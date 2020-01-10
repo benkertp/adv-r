@@ -351,7 +351,7 @@ We'll come back to this idea in Section \@ref(tidy-dots).
     
 <details><summary>Show ...</summary>
 
-```r{results = hide}
+```r{result = "hide"}
 
 p <- function(x) x
 is.function(p)
@@ -368,13 +368,6 @@ mean
 mean.default
 
 ```
-
-</details> 
-    
-<details><summary>Show ...</summary>
-
- - e.g. in lapply, sanitize.text.function in print.xtable
- - in situations you do not plan to reuse a function
 
 </details>  
 
