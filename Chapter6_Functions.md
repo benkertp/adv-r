@@ -280,7 +280,7 @@ funs <- list(
 funs$double(10)
 #> [1] 20
 ```
-
+print
 In R, you'll often see functions called __closures__. This name reflects the fact that **R functions capture, or enclose, their environments**, which you'll learn more about in Section \@ref(function-environments).
 
 <!-- PB / TODO: Define closures more precisely ? -->
@@ -309,6 +309,13 @@ We'll come back to this idea in Section \@ref(tidy-dots).
 
 1. Given a name, like `"mean"`, `match.fun()` lets you find a function. 
    Given a function, can you find its name? Why doesn't that make sense in R?
+
+<details><summary>Show ...</summary>
+
+ - a function can assigned to various names 
+ - also depends on the environment?
+ 
+</details>  
 
 1.  It's possible (although typically not useful) to call an anonymous function.
     Which of the two approaches below is correct? Why?
