@@ -15,7 +15,7 @@ Answer the following questions to see if you can safely skip this chapter. You c
 1.  What are the three components of a function?
 
 <details><summary>Show...</summary>
-body, args, env
+arguments, body, environment
 </details>  
 
 1.  What does the following code return?
@@ -137,7 +137,7 @@ TODO!
 
 To understand functions in R you need to internalise two important ideas:
 
-* Functions can be broken down into three components: arguments, body, and environment.
+* Functions can be broken down into three components: **arguments, body, and environment.**
 
 There are exceptions to every rule, and in this case, there is a small selection of "primitive" base functions that are implemented purely in C.
 
