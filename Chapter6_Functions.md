@@ -139,7 +139,7 @@ To understand functions in R you need to internalise two important ideas:
 
 * Functions can be broken down into three components: **arguments, body, and environment.**
 
-There are exceptions to every rule, and in this case, there is a small selection of "primitive" base functions that are implemented purely in C.
+There are **exceptions** to every rule, and in this case, there is a small selection of **"primitive" base functions** that are implemented purely in C.
 
 * Functions are objects, just as vectors are objects.
 
@@ -162,7 +162,7 @@ A function has three parts:
 * The `environment()`, the data structure that determines how the function finds 
 the values associated with the names.
 
-While the formals and body are specified explicitly when you create a function, the environment is specified implicitly, based on _where_ you defined the function. The function environment always exists, but it is only printed when the function isn't defined in the global environment.
+While the formals and body are specified explicitly when you create a function, **the environment is specified implicitly, based on _where_ you defined the function**. The function environment always exists, but it is only printed when the function isn't defined in the global environment.
 
 
 ```r
@@ -190,7 +190,7 @@ I'll draw functions as in the following diagram. The black dot on the left is th
 
 <img src="diagrams/functions/components.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
 
-Like all objects in R, functions can also possess any number of additional `attributes()`. One attribute used by base R is `srcref`, short for source reference. It points to the source code used to create the function. The `srcref` is used for printing because, unlike `body()`, it contains code comments and other formatting.  
+Like all objects in R, functions can also possess any number of additional `attributes()`. One attribute used by base R is `srcref`, short for source reference. It points to the source code used to create the function. The **`srcref` is used for printing because, unlike `body()`, it contains code comments and other formatting**.  
 
 
 ```r
