@@ -268,7 +268,7 @@ You normally call a function by placing its arguments, wrapped in parentheses, a
 args <- list(1:10, na.rm = TRUE)
 ```
 
-You can instead use `do.call()`: it has two arguments. The function to call, and a list containing the function arguments:
+You can instead use **`do.call()`: it has two arguments. The function to call, and a list containing the function arguments**:
 
 ```{r}
 do.call(mean, args)
