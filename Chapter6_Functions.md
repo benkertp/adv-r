@@ -44,12 +44,33 @@ body, args, env
     `+`(1, `*`(2, 3))
     ```
     
+<details><summary>Show ...</summary>
+
+    
+    ```r
+    1 + 2 * 3
+    ```
+
+</details>    
+    
 1.  How could you make this call easier to read?
 
     
     ```r
     mean(, TRUE, x = c(1:10, NA))
     ```
+    
+<details><summary>Show ...</summary>
+
+    
+    ```r
+    mean(x = c(1:10, NA), na.rm = TRUE)
+    
+    mean(c(1:10, NA), na.rm = TRUE)
+    ```
+
+</details>    
+    
 
 1.  Does the following code throw an error when executed? Why or why not?
 
@@ -149,7 +170,7 @@ environment(f02)
 
 I'll draw functions as in the following diagram. The black dot on the left is the environment. The two blocks to the right are the function arguments. I won't draw the body, because it's usually large, and doesn't help you understand the shape of the function.
 
-<img src="diagrams/functions/components.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
+<img src="diagrams/functions/components.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" style="display: block; margin: auto;" />
 
 Like all objects in R, functions can also possess any number of additional `attributes()`. One attribute used by base R is `srcref`, short for source reference. It points to the source code used to create the function. The `srcref` is used for printing because, unlike `body()`, it contains code comments and other formatting.  
 
@@ -216,7 +237,7 @@ f01 <- function(x) {
 }
 ```
 
-<img src="diagrams/functions/first-class.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
+<img src="diagrams/functions/first-class.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" style="display: block; margin: auto;" />
 
 While you almost always create a function and then bind it to a name, the binding step is not compulsory. If you choose not to give a function a name, you get an __anonymous function__. This is useful when it's not worth the effort to figure out a name:
 
@@ -291,8 +312,6 @@ We'll come back to this idea in Section \@ref(tidy-dots).
     
     ```r
     objs <- mget(ls("package:base", all = TRUE), inherits = TRUE)
-    #> Warning in ls("package:base", all = TRUE): partial argument match of 'all'
-    #> to 'all.names'
     funs <- Filter(is.function, objs)
     ```
 
@@ -735,7 +754,7 @@ str(h06(10))
 
 ```r
 args(sample)
-#> function (x, size = NULL, replace = FALSE, prob = NULL) 
+#> function (x, size, replace = FALSE, prob = NULL) 
 #> NULL
 ```
  
@@ -850,7 +869,7 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
       print(x)
     }
     show_time()
-    #> [1] "2020-01-09 19:44:44 CET"
+    #> [1] "2020-01-10 13:10:05 CET"
     ```
 
 1.  How many arguments are required when calling `library()`?
@@ -982,7 +1001,7 @@ Using `...` comes with two downsides:
     plot(1:10, col = "red", pch = 20, xlab = "x", col.lab = "blue")
     ```
     
-    <img src="figure/unnamed-chunk-58-1.png" title="plot of chunk unnamed-chunk-58" alt="plot of chunk unnamed-chunk-58" width="70%" style="display: block; margin: auto;" />
+    <img src="figure/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" width="70%" style="display: block; margin: auto;" />
     
 1.  Why does `plot(1:10, col = "red")` only colour the points, not the axes 
     or labels? Read the source code of `plot.default()` to find out.
@@ -1360,7 +1379,6 @@ str(k01(2, 3, abcdef = 1))
 
 # Can abbreviate long argument names:
 str(k01(2, 3, a = 1))
-#> Warning in k01(2, 3, a = 1): partial argument match of 'a' to 'abcdef'
 #> List of 3
 #>  $ a : num 1
 #>  $ b1: num 2
@@ -1368,7 +1386,6 @@ str(k01(2, 3, a = 1))
 
 # But this doesn't work because abbreviation is ambiguous
 str(k01(1, 3, b = 1))
-#> Warning in k01(1, 3, b = 1): partial argument match of 'b' to 'bcde1'
 #> Error in k01(1, 3, b = 1): argument 3 matches multiple formal arguments
 ```
 

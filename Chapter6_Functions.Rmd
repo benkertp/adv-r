@@ -44,11 +44,30 @@ body, args, env
     `+`(1, `*`(2, 3))
     ```
     
+<details><summary>Show ...</summary>
+
+    ```{r, eval = FALSE}
+    1 + 2 * 3
+    ```
+
+</details>    
+    
 1.  How could you make this call easier to read?
 
     ```{r, eval = FALSE}
     mean(, TRUE, x = c(1:10, NA))
     ```
+    
+<details><summary>Show ...</summary>
+
+    ```{r, eval = FALSE}
+    mean(x = c(1:10, NA), na.rm = TRUE)
+    
+    mean(c(1:10, NA), na.rm = TRUE)
+    ```
+
+</details>    
+    
 
 1.  Does the following code throw an error when executed? Why or why not?
 
