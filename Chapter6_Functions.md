@@ -1,8 +1,3 @@
----
-title: "Functions"
-output: html_document
----
-
 # Functions
 
 
@@ -914,7 +909,7 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
       print(x)
     }
     show_time()
-    #> [1] "2020-01-10 13:11:48 CET"
+    #> [1] "2020-01-10 13:47:21 CET"
     ```
 
 1.  How many arguments are required when calling `library()`?
