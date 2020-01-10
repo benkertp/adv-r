@@ -78,12 +78,33 @@ mean(c(1:10, NA), na.rm = TRUE)
     }
     f2(10, stop("This is an error!"))
     ```
+<details><summary>Show ...</summary>
+
+lazy evaluation
+
+</details> 
 
 1.  What is an infix function? How do you write it? What's a replacement 
     function? How do you write it?
+  
+TODO!    
+<details><summary>Show ...</summary>
+
+
+
+</details> 
 
 1.  How do you ensure that cleanup action occurs regardless of how a function 
     exits?
+
+TODO!       
+<details><summary>Show ...</summary>
+
+
+
+</details> 
+
+
 
 ### Outline {-}
 
