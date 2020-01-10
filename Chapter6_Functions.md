@@ -135,7 +135,7 @@ TODO!
 
 ## Function fundamentals
 
- <p style="color:red">my text here</p>
+<p style="color:red">my text here</p>
 
 To understand functions in R you need to internalise two important ideas:
 
