@@ -319,8 +319,7 @@ We'll come back to this idea in Section \@ref(tidy-dots).
     
 <details><summary>Show ...</summary>
 
-```{r, result = "hide"}
-
+```r
 p <- function(x) x
 is.function(p)
 class(p)
@@ -334,7 +333,6 @@ is.primitive(mean)
 is.function(mean)
 mean
 mean.default
-
 ```
 
 </details>  
