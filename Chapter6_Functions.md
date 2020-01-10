@@ -330,10 +330,10 @@ We'll come back to this idea in Section \@ref(tidy-dots).
 
 <details><summary>Show ...</summary>
 
-    ```r
-    function(x) 3()
-    (function(x) 3)()
-    ```
+```r
+function(x) 3()
+(function(x) 3)()
+```
 
 
 </details>  
