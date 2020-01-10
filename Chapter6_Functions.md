@@ -46,9 +46,9 @@ body, args, env
     
 <details><summary>Show ...</summary>
 
-    ```r
-    1 + 2 * 3
-    ```
+```r
+1 + 2 * 3
+```
 
 </details>    
     
@@ -61,11 +61,10 @@ body, args, env
     
 <details><summary>Show ...</summary>
 
-    ```r
-    mean(x = c(1:10, NA), na.rm = TRUE)
-    
-    mean(c(1:10, NA), na.rm = TRUE)
-    ```
+```r
+mean(x = c(1:10, NA), na.rm = TRUE)
+mean(c(1:10, NA), na.rm = TRUE)
+```
 
 </details>    
     
