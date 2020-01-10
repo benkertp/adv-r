@@ -1,3 +1,8 @@
+---
+title: "Functions"
+output: html_document
+---
+
 # Functions
 
 
