@@ -143,6 +143,9 @@ TODO!
 <p style="color:red">my text here</p> 
 
 
+<span style="color: red;">text</span>
+
+
 <style>
 div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 </style>
