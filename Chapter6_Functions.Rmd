@@ -317,6 +317,7 @@ We'll come back to this idea in Section \@ref(tidy-dots).
 1.  What function allows you to tell if an object is a function? What function
     allows you to tell if a function is a primitive function?
     
+<details><summary>Show ...</summary>
 
 ```{r, result = "hide"}
 
@@ -336,7 +337,7 @@ mean.default
 
 ```
 
-
+</details>  
 
 1.  This code makes a list of all functions in the base package. 
     
@@ -357,7 +358,14 @@ mean.default
 1. What are the three important components of a function?
 
 1. When does printing a function not show the environment it was created in?
+ 
+ <details><summary>Show ...</summary>
+  - in GlobalEnv
   
+ ```{r} 
+function(x) {b=function(x) x; print(b)}
+```
+</details>  
 ## Function composition {#function-composition}
 \index{functions!composition}
 \indexc{\%>\%}

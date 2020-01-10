@@ -349,6 +349,7 @@ We'll come back to this idea in Section \@ref(tidy-dots).
 1.  What function allows you to tell if an object is a function? What function
     allows you to tell if a function is a primitive function?
     
+<details><summary>Show ...</summary>
 
 
 ```r
@@ -405,7 +406,7 @@ mean.default
 #> <environment: namespace:base>
 ```
 
-
+</details>  
 
 1.  This code makes a list of all functions in the base package. 
     
@@ -427,7 +428,16 @@ mean.default
 1. What are the three important components of a function?
 
 1. When does printing a function not show the environment it was created in?
+ 
+ <details><summary>Show ...</summary>
+  - in GlobalEnv
   
+ 
+ ```r
+ function(x) {b=function(x) x; print(b)}
+ #> function(x) {b=function(x) x; print(b)}
+ ```
+</details>  
 ## Function composition {#function-composition}
 \index{functions!composition}
 \indexc{\%>\%}
@@ -969,7 +979,7 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
       print(x)
     }
     show_time()
-    #> [1] "2020-01-10 22:29:19 CET"
+    #> [1] "2020-01-10 22:44:11 CET"
     ```
 
 1.  How many arguments are required when calling `library()`?
@@ -1101,7 +1111,7 @@ Using `...` comes with two downsides:
     plot(1:10, col = "red", pch = 20, xlab = "x", col.lab = "blue")
     ```
     
-    <img src="figure/unnamed-chunk-59-1.png" title="plot of chunk unnamed-chunk-59" alt="plot of chunk unnamed-chunk-59" width="70%" style="display: block; margin: auto;" />
+    <img src="figure/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" width="70%" style="display: block; margin: auto;" />
     
 1.  Why does `plot(1:10, col = "red")` only colour the points, not the axes 
     or labels? Read the source code of `plot.default()` to find out.
