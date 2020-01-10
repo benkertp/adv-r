@@ -296,6 +296,16 @@ We'll come back to this idea in Section \@ref(tidy-dots).
     (function(x) 3)()
     ```
 
+<details><summary>Show ...</summary>
+
+    ```r
+    function(x) 3()
+    (function(x) 3)()
+    ```
+
+
+</details>  
+
 1. A good rule of thumb is that an anonymous function should fit on one line 
    and shouldn't need to use `{}`. Review your code. Where could you have 
    used an anonymous function instead of a named function? Where should you 
