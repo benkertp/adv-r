@@ -298,11 +298,7 @@ We'll come back to this idea in Section \@ref(tidy-dots).
 
 <details><summary>Show ...</summary>
 
-```r{echo=T}
-function(x) 3()
-(function(x) 3)()
-```
-
+ - the second?
 
 </details>  
 
@@ -310,9 +306,45 @@ function(x) 3()
    and shouldn't need to use `{}`. Review your code. Where could you have 
    used an anonymous function instead of a named function? Where should you 
    have used a named function instead of an anonymous function?
+   
+<details><summary>Show ...</summary>
+
+ - e.g. in lapply, sanitize.text.function in print.xtable
+ - in situations you do not plan to reuse a function
+
+</details>  
 
 1.  What function allows you to tell if an object is a function? What function
     allows you to tell if a function is a primitive function?
+    
+<details><summary>Show ...</summary>
+
+```r{results = hide}
+
+p <- function(x) x
+is.function(p)
+class(p)
+
+is.primitive(p)
+is.primitive(is.function)
+
+is.primitive(sum)
+
+is.primitive(mean)
+is.function(mean)
+mean
+mean.default
+
+```
+
+</details> 
+    
+<details><summary>Show ...</summary>
+
+ - e.g. in lapply, sanitize.text.function in print.xtable
+ - in situations you do not plan to reuse a function
+
+</details>  
 
 1.  This code makes a list of all functions in the base package. 
     
