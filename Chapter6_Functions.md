@@ -1041,7 +1041,7 @@ sample <- function(x, size = NULL, replace = FALSE, prob = NULL) {
 }
 ```
 
-Because of lazy evaluation, you don't need to worry about unnecessary computation: the right side of `%||%` will only be evaluated if the left side is `NULL`.
+**Because of lazy evaluation, you don't need to worry about unnecessary computation: the right side of `%||%` will only be evaluated if the left side is `NULL`.**
 
 ### Exercises
 
@@ -1061,6 +1061,10 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
     #> [1] FALSE
     ```
 
+<details><summary>Show ...</summary>
+lazy evaluation
+</details>
+
     What is different with this code? Why is this behaviour undesirable here?
     
     
@@ -1077,6 +1081,11 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
     #> [1] FALSE FALSE FALSE
     ```
     
+
+<details><summary>Show ...</summary>
+not type stable
+</details>
+
 1.  What does this function return? Why? Which principle does it illustrate?
 
     
@@ -1087,6 +1096,10 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
     }
     f2()
     ```
+
+<details><summary>Show ...</summary>
+promise. only evaluated when first need
+</details>
 
 1.  What does this function return? Why? Which principle does it illustrate?
   
@@ -1100,6 +1113,21 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
     y
     ```
   
+<details><summary>Show ...</summary>
+
+
+```r
+    y <- 10
+    f1 <- function(x = {y <- 1; 2}, y = 0) {
+      c(x, y)
+    }
+    f1()
+    y
+```
+
+</details>
+
+
 1.  In `hist()`, the default value of `xlim` is `range(breaks)`, the default 
     value for `breaks` is `"Sturges"`, and
 
@@ -1120,7 +1148,7 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
       print(x)
     }
     show_time()
-    #> [1] "2020-01-11 23:08:08 CET"
+    #> [1] "2020-01-11 23:51:24 CET"
     ```
 
 1.  How many arguments are required when calling `library()`?
@@ -1252,7 +1280,7 @@ Using `...` comes with two downsides:
     plot(1:10, col = "red", pch = 20, xlab = "x", col.lab = "blue")
     ```
     
-    <img src="figure/unnamed-chunk-62-1.png" title="plot of chunk unnamed-chunk-62" alt="plot of chunk unnamed-chunk-62" width="70%" style="display: block; margin: auto;" />
+    <img src="figure/unnamed-chunk-63-1.png" title="plot of chunk unnamed-chunk-63" alt="plot of chunk unnamed-chunk-63" width="70%" style="display: block; margin: auto;" />
     
 1.  Why does `plot(1:10, col = "red")` only colour the points, not the axes 
     or labels? Read the source code of `plot.default()` to find out.
