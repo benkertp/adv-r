@@ -805,7 +805,7 @@ A **promise has three components**:
 *   **A value, which is computed and cached the first time a promise is 
     accessed when the expression is evaluated in the specified environment.**
     This ensures that the promise is evaluated at most once, and is why you
-    only see "Calculating..." printed once in the following example.
+    only **see "Calculating..." printed once** in the following example.
     
     ```{r}
     double <- function(x) { 
@@ -820,13 +820,13 @@ A **promise has three components**:
     h03(double(20))
     ```
 
-You cannot manipulate promises with R code. Promises are like a quantum state: any attempt to inspect them with R code will force an immediate evaluation, making the promise disappear. Later, in Section \@ref(quosures), you'll learn about quosures, which convert promises into an R object where you can easily inspect the expression and the environment.
+You cannot manipulate promises with R code. **Promises are like a quantum state: any attempt to inspect them with R code will force an immediate evaluation, making the promise disappear.** Later, in Section \@ref(quosures), you'll learn about quosures, which convert promises into an R object where you can easily inspect the expression and the environment.
 
 
 ### Default arguments
 \index{functions!default values}
 
-Thanks to lazy evaluation, default values can be defined in terms of other arguments, or even in terms of variables defined later in the function:
+**Thanks to lazy evaluation, default values can be defined** in terms of other arguments, or even in terms of variables defined later in the function:
 
 ```{r}
 h04 <- function(x = 1, y = x * 2, z = a + b) {
@@ -839,9 +839,9 @@ h04 <- function(x = 1, y = x * 2, z = a + b) {
 h04()
 ```
 
-Many base R functions use this technique, but I don't recommend it. It makes the code harder to understand: to predict _what_ will be returned, you need to know the exact order in which default arguments are evaluated.
+**Many base R functions use this technique, but I don't recommend it. It makes the code harder to understand:** to predict _what_ will be returned, you need to know the exact order in which default arguments are evaluated.
 
-The evaluation environment is slightly different for default and user supplied arguments, as default arguments are evaluated inside the function. This means that seemingly identical calls can yield different results. It's easiest to see this with an extreme example:
+The evaluation environment is slightly different for default and user supplied arguments, as **default arguments are evaluated inside the function.** This means that seemingly identical calls can yield different results. It's easiest to see this with an extreme example:
 
 ```{r, eval = FALSE}
 h05 <- function(x = ls()) {
@@ -862,7 +862,7 @@ h05(ls())
 \index{missing arguments!missing@\texttt{missing()}}
 \indexc{\%\textbar\textbar\%}
 
-To determine if an argument's value comes from the user or from a default, you can use `missing()`:
+To **determine if an argument's value comes from the user or from a default**, you can use `missing()`:
 
 ```{r}
 h06 <- function(x = 10) {
@@ -878,7 +878,7 @@ str(h06(10))
 args(sample)
 ```
  
-It looks like both `x` and `size` are required, but if `size` is not supplied, `sample()` uses `missing()` to provide a default. If I were to rewrite sample, I'd use an explicit `NULL` to indicate that `size` is not required but can be supplied:
+It looks like both `x` and `size` are required, but if `size` is not supplied, `sample()` uses `missing()` to provide a default. **If I were to rewrite sample, I'd use an explicit `NULL` to indicate that `size` is not required but can be supplied**:
 
 ```{r}
 sample <- function(x, size = NULL, replace = FALSE, prob = NULL) {
