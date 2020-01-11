@@ -381,12 +381,45 @@ mean.default
 
     a. Which base function has the most arguments?
     
+<details><summary>Show ...</summary>
+
+```r
+
+objs <- mget(ls("package:base", all = TRUE), inherits = TRUE)
+funs <- Filter(is.function, objs)
+
+str(funs)
+nargs <- as.numeric(lapply(funs, function(x) length(formals(x))))
+nargs
+
+nargs[which.max(nargs)]
+
+funs[which.max(nargs)]
+
+## no arguments
+length(which(nargs == 0))
+
+
+```
+
+</details>  
+    
     a. How many base functions have no arguments? What's special about those
        functions?
+ 
+ <details><summary>Show ...</summary>
+ 
+  - arguments: formals()
+  - body
+  - enviroment
+ 
+ </details>  
        
     a. How could you adapt the code to find all primitive functions?
 
 1. What are the three important components of a function?
+
+
 
 1. When does printing a function not show the environment it was created in?
  
@@ -400,7 +433,9 @@ mean.default
  #> function(x) x
  #> <environment: 0x7cdc560>
  ```
-</details>  
+</details>
+
+
 ## Function composition {#function-composition}
 \index{functions!composition}
 \indexc{\%>\%}
