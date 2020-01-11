@@ -817,10 +817,10 @@ c(c = c)
 1. What are the four principles that govern how R looks for values?
 
 <details><summary>Show ...</summary>
-* Name masking
-* Functions versus variables
-* A fresh start
-* Dynamic lookup
+ - Name masking
+ - Functions versus variables
+ - A fresh start
+ - Dynamic lookup
 </details>
 
 
@@ -867,7 +867,7 @@ c(c = c)
 \index{lazy evaluation} 
 \index{functions!lazy evaluation}
 
-In R, function arguments are __lazily evaluated__: they're only evaluated if accessed. For example, this code doesn't generate an error because `x` is never used:
+In R, function arguments are __lazily evaluated__: *they're only evaluated if accessed*. For example, this code *doesn't generate an error* because `x` is never used:
 
 
 ```r
@@ -878,21 +878,21 @@ h01(stop("This is an error!"))
 #> [1] 10
 ```
 
-This is an important feature because it allows you to do things like include potentially expensive computations in function arguments that will only be evaluated if needed.
+This is an **important feature** because it allows you to do things like **include potentially expensive computations in function arguments that will only be evaluated if needed.**
 
 ### Promises
 \index{promises}
 \index{thunks|see {promises}}
 
-Lazy evaluation is powered by a data structure called a __promise__, or (less commonly) a thunk. It's one of the features that makes R such an interesting programming language (we'll return to promises again in Section \@ref(quosures)).
+Lazy evaluation is powered by a **data structure called a __promise__**, or (less commonly) a thunk. It's one of the features that makes R such an interesting programming language (we'll return to promises again in Section \@ref(quosures)).
 
-A promise has three components: 
+A **promise has three components**: 
 
-*   An expression, like `x + y`, which gives rise to the delayed computation.
+*   **An expression**, like `x + y`, which gives rise to the **delayed computation**.
 
-*   An environment where the expression should be evaluated, i.e. the
+*   **An environment** where the expression should be evaluated, i.e. the
     environment where the function is called. This makes sure that the
-    following function returns 11, not 101:
+    following function returns **11, not 101**:
     
     
     ```r
@@ -906,8 +906,8 @@ A promise has three components:
     #> [1] 11
     ```
     
-    This also means that when you do assignment inside a call to a function,
-    the variable is bound outside of the function, not inside of it.
+    This also means that when you **do assignment inside a call to a function,
+    the variable is bound outside of the function, not inside of it**.
     
     
     ```r
@@ -917,8 +917,8 @@ A promise has three components:
     #> [1] 1000
     ```
     
-*   A value, which is computed and cached the first time a promise is 
-    accessed when the expression is evaluated in the specified environment.
+*   **A value, which is computed and cached the first time a promise is 
+    accessed when the expression is evaluated in the specified environment.**
     This ensures that the promise is evaluated at most once, and is why you
     only see "Calculating..." printed once in the following example.
     
