@@ -1172,7 +1172,7 @@ lazy eval. stop() is never called
 \index{ellipsis|see {...}}
 \index{dot-dot-dot|see {...}}
 
-Functions can have a special argument `...` (pronounced dot-dot-dot). With it, a function can take any number of additional arguments. In other programming languages, this type of argument is often called _varargs_ (short for variable arguments), and a function that uses it is said to be variadic. 
+Functions can have a special argument `...` (pronounced dot-dot-dot). With it, a function can take any number of additional arguments. **In other programming languages, this type of argument is often called _varargs_** (short for variable arguments), and a function that uses it is said to be variadic. 
 
 You can also use `...` to pass those additional arguments on to another function.
 
@@ -1192,7 +1192,7 @@ str(i02(x = 1, y = 2, z = 3))
 #>  $ z: num 3
 ```
 
-Using a special form, `..N`, it's possible (but rarely useful) to refer to elements of `...` by position:
+Using a **special form, `..N`**, it's possible (but rarely useful) to refer to elements of `...` by position:
 
 
 ```r
@@ -1205,7 +1205,7 @@ str(i03(1, 2, 3))
 #>  $ third: num 3
 ```
 
-More useful is `list(...)`, which evaluates the arguments and stores them in a list:
+More useful is `list(...)`, which **evaluates the arguments and stores them in a list**:
 
 
 ```r
@@ -1222,8 +1222,8 @@ str(i04(a = 1, b = 2))
 
 There are two primary uses of `...`, both of which we'll come back to later in the book:
 
-*   If your function takes a function as an argument, you want some way to 
-    pass additional arguments to that function. In this example, `lapply()`
+*   **If your function takes a function as an argument, you want some way to 
+    pass additional arguments to that function.** In this example, `lapply()`
     uses `...` to pass `na.rm` on to `mean()`:
     
     
@@ -1237,8 +1237,8 @@ There are two primary uses of `...`, both of which we'll come back to later in t
     
     We'll come back to this technique in Section \@ref(passing-arguments).
     
-*   If your function is an S3 generic, you need some way to allow methods to 
-    take arbitrary extra arguments. For example, take the `print()` function. 
+*   **If your function is an S3 generic, you need some way to allow methods to 
+    take arbitrary extra arguments.** For example, take the `print()` function. 
     Because there are different options for printing depending on the type of 
     object, there's no way to pre-specify every possible argument and `...` 
     allows individual methods to have different arguments:
@@ -1252,14 +1252,14 @@ There are two primary uses of `...`, both of which we'll come back to later in t
     
     We'll come back to this use of `...` in Section \@ref(s3-arguments).
 
-Using `...` comes with two downsides:
+Using `...` comes with **two downsides**:
 
 *   When you use it to pass arguments to another function, you have to 
-    carefully explain to the user where those arguments go. This makes it
+    **carefully explain to the user where those arguments go**. This makes it
     hard to understand what you can do with functions like `lapply()` and 
     `plot()`.
     
-*   A misspelled argument will not raise an error. This makes it easy for 
+*   **A misspelled argument will not raise an error**. This makes it easy for 
     typos to go unnoticed:
 
     
@@ -1285,6 +1285,14 @@ Using `...` comes with two downsides:
     #> [1] 1
     ```
 
+
+<details><summary>Show ...</summary>
+
+ - mean does not use ...
+ - na.omit = TRUE -> 1
+</details>
+
+
 1.  Explain how to find the documentation for the named arguments in the 
     following function call:
     
@@ -1294,6 +1302,10 @@ Using `...` comes with two downsides:
     ```
     
     <img src="figure/unnamed-chunk-64-1.png" title="plot of chunk unnamed-chunk-64" alt="plot of chunk unnamed-chunk-64" width="70%" style="display: block; margin: auto;" />
+<details><summary>Show ...</summary>
+?plot 
+-> par?
+</details> 
     
 1.  Why does `plot(1:10, col = "red")` only colour the points, not the axes 
     or labels? Read the source code of `plot.default()` to find out.
