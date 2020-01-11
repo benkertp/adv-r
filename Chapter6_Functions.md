@@ -505,22 +505,22 @@ x %>%
 #> [1] 0.274
 ```
 
-`x %>% f()` is equivalent to `f(x)`; `x %>% f(y)` is equivalent to `f(x, y)`. The pipe allows you to focus on the high-level composition of functions rather than the low-level flow of data; the focus is on what's being done (the verbs), rather than on what's being modified (the nouns). This style is common in Haskell and F#, the main inspiration for magrittr, and is the default style in stack based programming languages like Forth and Factor. 
+`x %>% f()` is equivalent to `f(x)`; `x %>% f(y)` is equivalent to `f(x, y)`. The **pipe allows you to focus on the high-level composition of functions rather than the low-level flow of data; the focus is on what's being done (the verbs), rather than on what's being modified (the nouns)**. This style is common in Haskell and F#, the main inspiration for magrittr, and is the default style in stack based programming languages like Forth and Factor. 
 
 Each of the three options has its own strengths and weaknesses:
 
-* Nesting, `f(g(x))`, is concise, and well suited for short sequences. But
-  longer sequences are hard to read because they are read inside out and
+* **Nesting**, `f(g(x))`, is concise, and well suited **for short sequences**. But
+  **longer sequences are hard to read** because they are read inside out and
   right to left. As a result, arguments can get spread out over long distances
   creating the [Dagwood
   sandwich](https://en.wikipedia.org/wiki/Dagwood_sandwich) problem.
-
-* Intermediate objects, `y <- f(x); g(y)`, requires you to name intermediate
+**
+* **Intermediate objects**, `y <- f(x); g(y)`, **requires you to name intermediate**
   objects. This is a strength when objects are important, but a weakness when
   values are truly intermediate.
 
-* Piping, `x %>% f() %>% g()`, allows you to read code in straightforward
-  left-to-right fashion and doesn't require you to name intermediate objects.
+* **Piping**, `x %>% f() %>% g()`, allows you to read code in **straightforward
+  left-to-right** fashion and doesn't require you to name intermediate objects.
   But you can only use it with linear sequences of transformations of a single
   object. It also requires an additional third party package and assumes that
   the reader understands piping.
