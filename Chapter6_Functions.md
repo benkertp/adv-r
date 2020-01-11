@@ -442,7 +442,7 @@ funs[which(nargs2 == 0)]
 
 1. When does printing a function not show the environment it was created in?
  
- <details><summary>Show ...</summary>
+<details><summary>Show ...</summary>
   - in GlobalEnv
   
  
@@ -534,7 +534,12 @@ In Chapter \@ref(names-values), we discussed **assignment, the act of binding a 
 
 The basic rules of scoping are quite intuitive, and you've probably already internalised them, even if you never explicitly studied them. For example, what will the following code return, 10 or 20?
 
+
+<details><summary>Show ...</summary>
+
 I'll "hide" the answers to these challenges in the footnotes. Try solving them before looking at the answer; this will help you to better remember the correct answer. In this case, `g01()` will return `20`.
+
+</details>
 
 
 ```r
@@ -551,7 +556,7 @@ In this section, you'll learn the formal rules of scoping as well as some of its
 
 R uses __lexical scoping__[^dyn-scope]: **it looks up the values of names based on how a function is defined, not how it is called**. "Lexical" here is not the English adjective that means relating to words or a vocabulary. It's a technical CS term that tells us that the scoping rules use a parse-time, rather than a run-time structure. 
 
-R's lexical scoping follows four primary rules:
+R's lexical scoping follows **four primary rules**:
 
 * Name masking
 * Functions versus variables
@@ -563,7 +568,7 @@ R's lexical scoping follows four primary rules:
 ### Name masking
 \index{functions!scoping}
 
-The basic principle of lexical scoping is that names defined inside a function mask names defined outside a function. This is illustrated in the following example.
+The basic principle of lexical scoping is that **names defined inside a function mask names defined outside a function**. This is illustrated in the following example.
 
 
 ```r
@@ -578,7 +583,7 @@ g02()
 #> [1] 1 2
 ```
 
-If a name isn't defined inside a function, R looks one level up.
+**If a name isn't defined inside a function, R looks one level up.**
 
 
 ```r
@@ -595,11 +600,10 @@ y
 #> [1] 20
 ```
 
-The same rules apply if a function is defined inside another function. First, R looks inside the current function. Then, it looks where that function was defined (and so on, all the way up to the global environment). Finally, it looks in other loaded packages. 
+The **same rules apply if a function is defined inside another function**. First, R looks inside the current function. Then, it looks where that function was defined (and so on, all the way up to the global environment). Finally, it looks in other loaded packages. 
 
-Run the following code in your head, then confirm the result by running the code.[^answer2]
+Run the following code in your head, then confirm the result by running the code.
 
-[^answer2]: `g04()` returns `c(1, 2, 3)`.
 
 
 ```r
@@ -615,7 +619,16 @@ g04 <- function() {
 g04()
 ```
 
-The same rules also apply to functions created by other functions, which I call manufactured functions, the topic of Chapter \@ref(function-factories). 
+
+
+<details><summary>Show ...</summary>
+
+`g04()` returns `c(1, 2, 3)`.
+
+</details>
+
+
+The same rules **also apply to functions created by other functions, which I call manufactured functions**, the topic of Chapter \@ref(function-factories). 
 
 ### Functions versus variables
 
@@ -631,8 +644,13 @@ g08 <- function() {
 g08()
 #> [1] 110
 ```
+<details><summary>Show ...</summary>
 
-However, when a function and a non-function share the same name (they must, of course, reside in different environments), applying these rules gets a little more complicated. When you use a name in a function call, R ignores non-function objects when looking for that value. For example, in the code below, `g09` takes on two different values:
+110
+
+</details>
+
+However, when a function and a non-function share the same name (they must, of course, reside in different environments), applying these rules gets a little more complicated. **When you use a name in a function call, R ignores non-function objects** when looking for that value. For example, in the code below, **`g09` takes on two different values**:
 
 
 ```r
@@ -644,8 +662,13 @@ g10 <- function() {
 g10()
 #> [1] 110
 ```
+<details><summary>Show ...</summary>
 
-For the record, using the same name for different things is confusing and best avoided!
+110
+
+</details>
+
+For the record, using the **same name for different things is confusing and best avoided!*
 
 ### A fresh start {#fresh-start}
 
