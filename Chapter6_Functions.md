@@ -521,20 +521,20 @@ Each of the three options has its own strengths and weaknesses:
 
 * **Piping**, `x %>% f() %>% g()`, allows you to read code in **straightforward
   left-to-right** fashion and doesn't require you to name intermediate objects.
-  But you can only use it with linear sequences of transformations of a single
-  object. It also requires an additional third party package and assumes that
+  But you can **only use it with linear sequences of transformations of a single
+  object**. It also requires an additional third party package and assumes that
   the reader understands piping.
 
-Most code will use a combination of all three styles. Piping is more common in data analysis code, as much of an analysis consists of a sequence of transformations of an object (like a data frame or plot). I tend to use piping infrequently in packages; not because it is a bad idea, but because it's often a less natural fit.
+**Most code will use a combination of all three styles**. **Piping is more common in data analysis code**, as much of an analysis consists of a sequence of transformations of an object (like a data frame or plot). **I tend to use piping infrequently in packages; not because it is a bad idea, but because it's often a less natural fit.**
 
 ## Lexical scoping {#lexical-scoping}
 \index{scoping!lexical}
 
-In Chapter \@ref(names-values), we discussed assignment, the act of binding a name to a value. Here we'll discuss __scoping__, the act of finding the value associated with a name.
+In Chapter \@ref(names-values), we discussed **assignment, the act of binding a name to a value**. Here we'll discuss __scoping__, **the act of finding the value associated with a name**.
 
-The basic rules of scoping are quite intuitive, and you've probably already internalised them, even if you never explicitly studied them. For example, what will the following code return, 10 or 20?[^answer1]
+The basic rules of scoping are quite intuitive, and you've probably already internalised them, even if you never explicitly studied them. For example, what will the following code return, 10 or 20?
 
-[^answer1]: I'll "hide" the answers to these challenges in the footnotes. Try solving them before looking at the answer; this will help you to better remember the correct answer. In this case, `g01()` will return `20`.
+I'll "hide" the answers to these challenges in the footnotes. Try solving them before looking at the answer; this will help you to better remember the correct answer. In this case, `g01()` will return `20`.
 
 
 ```r
@@ -549,7 +549,7 @@ g01()
 
 In this section, you'll learn the formal rules of scoping as well as some of its more subtle details. A deeper understanding of scoping will help you to use more advanced functional programming tools, and eventually, even to write tools that translate R code into other languages.
 
-R uses __lexical scoping__[^dyn-scope]: it looks up the values of names based on how a function is defined, not how it is called. "Lexical" here is not the English adjective that means relating to words or a vocabulary. It's a technical CS term that tells us that the scoping rules use a parse-time, rather than a run-time structure. 
+R uses __lexical scoping__[^dyn-scope]: **it looks up the values of names based on how a function is defined, not how it is called**. "Lexical" here is not the English adjective that means relating to words or a vocabulary. It's a technical CS term that tells us that the scoping rules use a parse-time, rather than a run-time structure. 
 
 R's lexical scoping follows four primary rules:
 
