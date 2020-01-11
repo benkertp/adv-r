@@ -351,20 +351,58 @@ We'll come back to this idea in Section \@ref(tidy-dots).
     
 <details><summary>Show ...</summary>
 
+
 ```r
 p <- function(x) x
 is.function(p)
+#> [1] TRUE
 class(p)
+#> [1] "function"
 
 is.primitive(p)
+#> [1] FALSE
 is.primitive(is.function)
+#> [1] TRUE
 
 is.primitive(sum)
+#> [1] TRUE
 
 is.primitive(mean)
+#> [1] FALSE
 is.function(mean)
+#> [1] TRUE
 mean
+#> function (x, ...) 
+#> UseMethod("mean")
+#> <bytecode: 0x3d19ea8>
+#> <environment: namespace:base>
 mean.default
+#> function (x, trim = 0, na.rm = FALSE, ...) 
+#> {
+#>     if (!is.numeric(x) && !is.complex(x) && !is.logical(x)) {
+#>         warning("argument is not numeric or logical: returning NA")
+#>         return(NA_real_)
+#>     }
+#>     if (na.rm) 
+#>         x <- x[!is.na(x)]
+#>     if (!is.numeric(trim) || length(trim) != 1L) 
+#>         stop("'trim' must be numeric of length one")
+#>     n <- length(x)
+#>     if (trim > 0 && n) {
+#>         if (is.complex(x)) 
+#>             stop("trimmed means are not defined for complex data")
+#>         if (anyNA(x)) 
+#>             return(NA_real_)
+#>         if (trim >= 0.5) 
+#>             return(stats::median(x, na.rm = FALSE))
+#>         lo <- floor(n * trim) + 1
+#>         hi <- n + 1 - lo
+#>         x <- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+#>     }
+#>     .Internal(mean(x))
+#> }
+#> <bytecode: 0x2067ac8>
+#> <environment: namespace:base>
 ```
 
 </details>  
@@ -450,7 +488,7 @@ funs[which(nargs2 == 0)]
  a <- function(x) {b <- function(x) x; print(b)}
  a()
  #> function(x) x
- #> <environment: 0x7cdc560>
+ #> <environment: 0x7d05b08>
  ```
 </details>
 
@@ -1078,7 +1116,7 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
       print(x)
     }
     show_time()
-    #> [1] "2020-01-10 22:47:00 CET"
+    #> [1] "2020-01-11 23:07:09 CET"
     ```
 
 1.  How many arguments are required when calling `library()`?
@@ -1210,7 +1248,7 @@ Using `...` comes with two downsides:
     plot(1:10, col = "red", pch = 20, xlab = "x", col.lab = "blue")
     ```
     
-    <img src="figure/unnamed-chunk-59-1.png" title="plot of chunk unnamed-chunk-59" alt="plot of chunk unnamed-chunk-59" width="70%" style="display: block; margin: auto;" />
+    <img src="figure/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" width="70%" style="display: block; margin: auto;" />
     
 1.  Why does `plot(1:10, col = "red")` only colour the points, not the axes 
     or labels? Read the source code of `plot.default()` to find out.

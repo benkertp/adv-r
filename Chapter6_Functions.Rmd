@@ -319,7 +319,7 @@ We'll come back to this idea in Section \@ref(tidy-dots).
     
 <details><summary>Show ...</summary>
 
-```r
+```{r, result = "hide"}
 p <- function(x) x
 is.function(p)
 class(p)
