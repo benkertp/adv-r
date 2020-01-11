@@ -1150,8 +1150,21 @@ promise. only evaluated when first need
     show_time()
     #> [1] "2020-01-11 23:51:24 CET"
     ```
+<details><summary>Show ...</summary>
+lazy eval. stop() is never called
+</details>
 
 1.  How many arguments are required when calling `library()`?
+
+<details><summary>Show ...</summary>
+
+
+```r
+?library
+```
+
+</details>
+
 
 ## `...`  (dot-dot-dot) {#fun-dot-dot-dot}
 \indexc{...}
@@ -1280,7 +1293,7 @@ Using `...` comes with two downsides:
     plot(1:10, col = "red", pch = 20, xlab = "x", col.lab = "blue")
     ```
     
-    <img src="figure/unnamed-chunk-63-1.png" title="plot of chunk unnamed-chunk-63" alt="plot of chunk unnamed-chunk-63" width="70%" style="display: block; margin: auto;" />
+    <img src="figure/unnamed-chunk-64-1.png" title="plot of chunk unnamed-chunk-64" alt="plot of chunk unnamed-chunk-64" width="70%" style="display: block; margin: auto;" />
     
 1.  Why does `plot(1:10, col = "red")` only colour the points, not the axes 
     or labels? Read the source code of `plot.default()` to find out.
