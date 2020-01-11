@@ -674,10 +674,20 @@ For the record, using the **same name for different things is confusing and best
 
 What happens to values between invocations of a function? Consider the example below. What will happen the first time you run this function? What will happen the second time?[^answer4] (If you haven't seen `exists()` before, it returns `TRUE` if there's a variable with that name and returns `FALSE` if not.)
 
-[^answer4]: `g11()` returns `1` every time it's called.
+<details><summary>Show ...</summary>
+
+`g11()` returns `1` every time it's called.
+
+</details>
 
 
 ```r
+
+##a <- NULL
+##rm(a)
+
+##a <- 1
+
 g11 <- function() {
   if (!exists("a")) {
     a <- 1
@@ -693,7 +703,7 @@ g11()
 #> Error in a + 1: non-numeric argument to binary operator
 ```
 
-You might be surprised that `g11()` always returns the same value. This happens because every time a function is called a new environment is created to host its execution. This means that a function has no way to tell what happened the last time it was run; each invocation is completely independent. We'll see some ways to get around this in Section \@ref(stateful-funs).
+You might be surprised that `g11()` always returns the same value. This happens **because every time a function is called a new environment is created to host its execution. This means that a function has no way to tell what happened the last time it was run; each invocation is completely independent**. We'll see some ways to get around this in Section \@ref(stateful-funs).
 
 ### Dynamic lookup
 \indexc{findGlobals()}
