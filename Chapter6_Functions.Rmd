@@ -363,10 +363,6 @@ nargs[which.max(nargs)]
 
 funs[which.max(nargs)]
 
-## no arguments
-length(which(nargs == 0))
-
-
 ```
 
 </details>  
@@ -374,6 +370,35 @@ length(which(nargs == 0))
     a. How many base functions have no arguments? What's special about those
        functions?
  
+
+    
+<details><summary>Show ...</summary>
+
+```r
+
+## no arguments
+length(which(nargs == 0))
+funs[which(nargs == 0)]
+
+## many are Primitives with formals(fun) -> NULL
+## define these as NA
+nargs2 <- as.numeric(lapply(funs, function(x) ifelse(is.primitive(x), NA, length(formals(x)))))
+
+nargs2
+table(nargs2, useNA="ifany")
+
+## Sys, ...
+funs[which(nargs2 == 0)]
+
+```
+
+</details>  
+
+       
+    a. How could you adapt the code to find all primitive functions?
+
+1. What are the three important components of a function?
+
  <details><summary>Show ...</summary>
  
   - arguments: formals()
@@ -381,12 +406,6 @@ length(which(nargs == 0))
   - enviroment
  
  </details>  
-       
-    a. How could you adapt the code to find all primitive functions?
-
-1. What are the three important components of a function?
-
-
 
 1. When does printing a function not show the environment it was created in?
  
