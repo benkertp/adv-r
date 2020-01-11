@@ -802,11 +802,13 @@ The problem and its solution reveal why this seemingly undesirable behaviour exi
 
 <details><summary>Show ...</summary>
 
+
 ```r
 
 c <- 10
 c(c = c)
-
+#>  c 
+#> 10
 ```
 
 </details>
@@ -842,6 +844,7 @@ c(c = c)
 
 <details><summary>Show ...</summary>
 
+
 ```r
     f <- function(x) {
       f <- function(x) {
@@ -853,6 +856,7 @@ c(c = c)
       f(x) * 2
     }
     f(10)
+#> [1] 202
 ```
 
 </details>
@@ -1116,7 +1120,7 @@ Because of lazy evaluation, you don't need to worry about unnecessary computatio
       print(x)
     }
     show_time()
-    #> [1] "2020-01-11 23:07:09 CET"
+    #> [1] "2020-01-11 23:08:08 CET"
     ```
 
 1.  How many arguments are required when calling `library()`?
@@ -1248,7 +1252,7 @@ Using `...` comes with two downsides:
     plot(1:10, col = "red", pch = 20, xlab = "x", col.lab = "blue")
     ```
     
-    <img src="figure/unnamed-chunk-60-1.png" title="plot of chunk unnamed-chunk-60" alt="plot of chunk unnamed-chunk-60" width="70%" style="display: block; margin: auto;" />
+    <img src="figure/unnamed-chunk-62-1.png" title="plot of chunk unnamed-chunk-62" alt="plot of chunk unnamed-chunk-62" width="70%" style="display: block; margin: auto;" />
     
 1.  Why does `plot(1:10, col = "red")` only colour the points, not the axes 
     or labels? Read the source code of `plot.default()` to find out.
