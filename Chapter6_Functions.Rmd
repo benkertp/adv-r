@@ -700,8 +700,10 @@ The problem and its solution reveal why this seemingly undesirable behaviour exi
 <details><summary>Show ...</summary>
 
 ```r
+
 c <- 10
 c(c = c)
+
 ```
 
 </details>
