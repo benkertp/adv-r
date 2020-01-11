@@ -708,7 +708,7 @@ You might be surprised that `g11()` always returns the same value. This happens 
 ### Dynamic lookup
 \indexc{findGlobals()}
 
-Lexical scoping determines where, but not when to look for values. R looks for values when the function is run, not when the function is created. Together, these two properties tell us that the output of a function can differ depending on the objects outside the function's environment:
+Lexical scoping determines where, but not when to look for values. **R looks for values when the function is run, not when the function is created.** Together, these two properties tell us that the output of a function can differ depending on the objects outside the function's environment:
 
 
 ```r
@@ -724,7 +724,7 @@ g12()
 
 This behaviour can be quite annoying. If you make a spelling mistake in your code, you won't get an error message when you create the function. And depending on the variables defined in the global environment, you might not even get an error message when you run the function. 
 
-To detect this problem, use `codetools::findGlobals()`. This function lists all the external dependencies (unbound symbols) within a function:
+To detect this problem, use `codetools::findGlobals()`. This function **lists all the external dependencies (unbound symbols) within a function**:
 
 
 ```r
@@ -741,7 +741,14 @@ g12()
 #> Error in x + 1: could not find function "+"
 ```
 
-The problem and its solution reveal why this seemingly undesirable behaviour exists: R relies on lexical scoping to find _everything_, from the obvious, like `mean()`, to the less obvious, like `+` or even `{`. This gives R's scoping rules a rather beautiful simplicity.
+<details><summary>Show ...</summary>
+
+Error in x + 1 : could not find function "+"
+-> no other functions defined in g12's env
+
+</details>
+
+The problem and its solution reveal why this seemingly undesirable behaviour exists: **R relies on lexical scoping to find _everything_, from the obvious, like `mean()`, to the less obvious, like `+` or even `{`. This gives R's scoping rules a rather beautiful simplicity.**
 
 ### Exercises
 
@@ -754,7 +761,26 @@ The problem and its solution reveal why this seemingly undesirable behaviour exi
     c(c = c)
     ```
 
+
+<details><summary>Show ...</summary>
+
+```r
+c <- 10
+c(c = c)
+```
+
+</details>
+
+
 1. What are the four principles that govern how R looks for values?
+
+<details><summary>Show ...</summary>
+* Name masking
+* Functions versus variables
+* A fresh start
+* Dynamic lookup
+</details>
+
 
 1. What does the following function return? Make a prediction before 
    running the code yourself.
@@ -772,6 +798,25 @@ The problem and its solution reveal why this seemingly undesirable behaviour exi
     }
     f(10)
     ```
+
+
+<details><summary>Show ...</summary>
+
+```r
+    f <- function(x) {
+      f <- function(x) {
+        f <- function() {
+          x ^ 2
+        }
+        f() + 1
+      }
+      f(x) * 2
+    }
+    f(10)
+```
+
+</details>
+
 
 ## Lazy evaluation {#lazy-evaluation}
 \index{evaluation!lazy|see {lazy evaluation}} 
