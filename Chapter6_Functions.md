@@ -1571,22 +1571,22 @@ j09()
 >
 > --- John Chambers
 
-While everything that happens in R is a result of a function call, not all calls look the same. Function calls come in four varieties:
+While everything that happens in R is a result of a function call, not all calls look the same. **Function calls come in four varieties**:
 
-* __prefix__: the function name comes before its arguments, like
-  `foofy(a, b, c)`. These constitute of the majority of function calls in R.
+* __prefix__: the **function name comes before its arguments**, like
+  `foofy(a, b, c)`. These constitute of the **majority** of function calls in R.
 
-* __infix__: the function name comes in between its arguments, like
-  `x + y`. Infix forms are used for many mathematical operators, and for
-  user-defined functions that begin and end with `%`.
+* __infix__: the function name comes in **between** its arguments, like
+  `x + y`. Infix forms are used for many **mathematical operators, and for
+  user-defined functions that begin and end with `%`**.
 
-* __replacement__: functions that replace values by assignment, like
+* __replacement__: functions that **replace values by assignment**, like
   `names(df) <- c("a", "b", "c")`. They actually look like prefix functions.
 
-* __special__: functions like `[[`, `if`, and `for`. While they don't have a
-  consistent structure, they play important roles in R's syntax.
+* __special__: functions like `[[`, `if`, and `for`. While they **don't have a
+  consistent structure**, they play important roles in R's syntax.
 
-While there are four forms, you actually only need one because any call can be written in prefix form. I'll demonstrate this property, and then you'll learn about each of the forms in turn.
+While there are four forms, you actually only need one because **any call can be written in prefix form**. I'll demonstrate this property, and then you'll learn about each of the forms in turn.
 
 ### Rewriting to prefix form {#prefix-transform}
 \index{'@\texttt{`}}
@@ -1595,7 +1595,7 @@ While there are four forms, you actually only need one because any call can be w
 
 An interesting property of R is that every infix, replacement, or special form can be rewritten in prefix form. Doing so is useful because it helps you better understand the structure of the language, it gives you the real name of every function, and it allows you to modify those functions for fun and profit.
 
-The following example shows three pairs of equivalent calls, rewriting an infix form, replacement form, and a special form into prefix form. 
+The following example shows **three pairs of equivalent calls**, rewriting an infix form, replacement form, and a special form into prefix form. 
 
 
 ```r
@@ -1609,7 +1609,7 @@ for(i in 1:10) print(i)
 `for`(i, 1:10, print(i))
 ```
 
-Suprisingly, in R, `for` can be called like a regular function! The same is true for basically every operation in R, which means that knowing the function name of a non-prefix function allows you to override its behaviour. For example, if you're ever feeling particularly evil, run the following code while a friend is away from their computer. It will introduce a fun bug: 10% of the time, it will add 1 to any numeric calculation inside the parentheses.
+Suprisingly, in R, `for` can be called like a regular function! The same is true for basically every operation in R, which means that **knowing the function name of a non-prefix function allows you to override its behaviour**. For example, if you're ever feeling particularly evil, run the following code while a friend is away from their computer. It will introduce a fun bug: 10% of the time, it will add 1 to any numeric calculation inside the parentheses.
 
 
 ```r
@@ -1628,7 +1628,7 @@ rm("(")
 
 Of course, overriding built-in functions like this is a bad idea, but, as you'll learn in Section \@ref(html-env), it's possible to apply it only to selected code blocks. This provides a clean and elegant approach to writing domain specific languages and translators to other languages.
 
-A more useful application comes up when using functional programming tools. For example, you could use `lapply()` to add 3 to every element of a list by first defining a function `add()`:
+**A more useful application comes up when using functional programming tools**. For example, you could use `lapply()` to add 3 to every element of a list by first defining a function `add()`:
 
 
 ```r
@@ -1641,7 +1641,7 @@ lapply(list(1:3, 4:5), add, 3)
 #> [1] 7 8
 ```
 
-But we can also get the same result simply by relying on the existing `+` function:
+But we can also get the same result **simply by relying on the existing `+` function**:
 
 
 ```r
@@ -1659,13 +1659,13 @@ We'll explore this idea in detail in Section \@ref(functionals).
 \index{functions!arguments}
 \index{arguments!matching}
 
-The prefix form is the most common form in R code, and indeed in the majority of programming languages. Prefix calls in R are a little special because you can specify arguments in three ways:
+The prefix form is the most common form in R code, and indeed in the majority of programming languages. Prefix calls in R are a little special because **you can specify arguments in three ways**:
 
-* By position, like `help(mean)`.
-* Using partial matching, like `help(top = mean)`.
-* By name, like `help(topic = mean)`.
+* By **position**, like `help(mean)`.
+* Using **partial matching**, like `help(top = mean)`.
+* By **name**, like `help(topic = mean)`.
 
-As illustrated by the following chunk, arguments are matched by exact name, then with unique prefixes, and finally by position.
+As illustrated by the following chunk, **arguments are matched by exact name, then with unique prefixes, and finally by position**.
 
 
 ```r
@@ -1695,7 +1695,7 @@ str(k01(1, 3, b = 1))
 #> Error in k01(1, 3, b = 1): argument 3 matches multiple formal arguments
 ```
 
-In general, use positional matching only for the first one or two arguments; they will be the most commonly used, and most readers will know what they are. Avoid using positional matching for less commonly used arguments, and never use partial matching. Unfortunately you can't disable partial matching, but you can turn it into a warning with the `warnPartialMatchArgs` option:
+In general, **use positional matching only for the first one or two arguments**; they will be the most commonly used, and most readers will know what they are. Avoid using positional matching for less commonly used arguments, and **never use partial matching**. Unfortunately you can't disable partial matching, but you **can turn it into a warning with the `warnPartialMatchArgs` option**:
 \index{options!warnPartialMatchArgs@\texttt{warnPartialMatchArgs}}
 
 
