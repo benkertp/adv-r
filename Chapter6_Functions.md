@@ -1357,7 +1357,7 @@ There are **two ways that a function can return a value*:
 \index{functions!invisible results}
 \index{assignment}
 
-Most functions return visibly: calling the function in an interactive context prints the result.
+**Most functions return visibly**: calling the function in an interactive context prints the result.
 
 
 ```r
@@ -1395,7 +1395,7 @@ str(withVisible(j04()))
 #>  $ visible: logi FALSE
 ```
 
-The most common function that returns invisibly is `<-`: 
+**The most common function that returns invisibly is `<-`**: 
 
 
 ```r
@@ -1404,14 +1404,14 @@ a <- 2
 #> [1] 2
 ```
 
-This is what makes it possible to chain assignments:
+This is what makes it possible to **chain assignments**:
 
 
 ```r
 a <- b <- c <- d <- 2
 ```
 
-In general, any function called primarily for a side effect (like `<-`, `print()`, or `plot()`) should return an invisible value (typically the value of the first argument).
+In general, **any function called primarily for a side effect** (like `<-`, `print()`, or `plot()`) **should return an invisible value** (typically the value of the first argument).
 
 ### Errors
 \indexc{stop()}
@@ -1429,7 +1429,7 @@ j05()
 #> Error in j05(): I'm an error
 ```
 
-An error indicates that something has gone wrong, and forces the user to deal with the problem. Some languages (like C, Go, and Rust) rely on special return values to indicate problems, but in R you should always throw an error. You'll learn more about errors, and how to handle them, in Chapter \@ref(conditions).
+An error indicates that something has gone wrong, and forces the user to deal with the problem. Some languages (like C, Go, and Rust) rely on special return values to indicate problems, but **in R you should always throw an error**. You'll learn more about errors, and how to handle them, in Chapter \@ref(conditions).
 
 ### Exit handlers {#on-exit}
 \indexc{on.exit()}
