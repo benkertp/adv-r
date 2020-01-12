@@ -1435,7 +1435,7 @@ An error indicates that something has gone wrong, and forces the user to deal wi
 \indexc{on.exit()}
 \index{handlers!exit}
 
-Sometimes a function needs to make temporary changes to the global state. But having to cleanup those changes can be painful (what happens if there's an error?). To ensure that these changes are undone and that the global state is restored no matter how a function exits, use `on.exit()` to set up an __exit handler__. The following simple example shows that the exit handler is run regardless of whether the function exits normally or with an error.
+Sometimes a function needs to make **temporary changes to the global state**. But having to cleanup those changes can be painful (what happens if there's an error?). **To ensure that these changes are undone and that the global state is restored no matter how a function exits, use `on.exit()`** to set up an __exit handler__. The following simple example shows that the exit handler is run regardless of whether the function exits normally or with an error.
 
 
 ```r
@@ -1462,10 +1462,10 @@ j06(FALSE)
 ```
 
 ::: sidebar
-Always set `add = TRUE` when using `on.exit()`. If you don't, each call to `on.exit()` will overwrite the previous exit handler. Even when only registering a single handler, it's good practice to set `add = TRUE` so that you won't get any unpleasant surprises if you later add more exit handlers.
+**Always set `add = TRUE` when using `on.exit()`.** If you don't, each call to `on.exit()` will overwrite the previous exit handler. Even when only registering a single handler, it's good practice to set `add = TRUE` so that you won't get any unpleasant surprises if you later add more exit handlers.
 :::
 
-`on.exit()` is useful because it allows you to place clean-up code directly next to the code that requires clean-up:
+**`on.exit()` is useful because it allows you to place clean-up code directly next to the code that requires clean-up:**
 
 
 ```r
@@ -1478,7 +1478,7 @@ cleanup <- function(dir, code) {
 }
 ```
 
-Coupled with lazy evaluation, this creates a very useful pattern for running a block of code in an altered environment:
+**Coupled with lazy evaluation, this creates a very useful pattern for running a block of code in an altered environment**:
 
 
 ```r
@@ -1499,7 +1499,7 @@ The use of `force()` isn't strictly necessary here as simply referring to `code`
 
 The withr package [@withr] provides a collection of other functions for setting up a temporary state.
 
-In R 3.4 and earlier, `on.exit()` expressions are always run in order of creation:
+In R 3.4 and earlier, `on.exit()` expressions are **always run in order of creation**:
 
 
 ```r
@@ -1512,7 +1512,7 @@ j08()
 #> b
 ```
 
-This can make cleanup a little tricky if some actions need to happen in a specific order; typically you want the most recent added expression to be run first. In R 3.5 and later, you can control this by setting `after = FALSE`:
+This can make cleanup a little tricky if some actions need to happen in a specific order; typically you want the most recent added expression to be run first. **In R 3.5 and later, you can control this by setting `after = FALSE`**:
 
 
 ```r
@@ -1537,6 +1537,8 @@ j09()
 1.  Write a function that opens a graphics device, runs the supplied code, and 
     closes the graphics device (always, regardless of whether or not the 
     plotting code works).
+    
+    on.exit(close(...))
 
 1.  We can use `on.exit()` to implement a simple version of `capture.output()`.
 
@@ -1564,8 +1566,8 @@ j09()
 
 > To understand computations in R, two slogans are helpful:
 >
-> * Everything that exists is an object.
-> * Everything that happens is a function call.
+> * Everything that **exists** is an **object**.
+> * Everything that **happens** i*s a **function call**.
 >
 > --- John Chambers
 
