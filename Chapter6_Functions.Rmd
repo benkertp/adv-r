@@ -85,9 +85,12 @@ lazy evaluation
 1.  What is an infix function? How do you write it? What's a replacement 
     function? How do you write it?
   
-TODO!    
+   
 <details><summary>Show ...</summary>
 
+%xxx% <- function()
+
+`xxx<-` <- function(x, value)
 
 
 </details> 
@@ -95,10 +98,10 @@ TODO!
 1.  How do you ensure that cleanup action occurs regardless of how a function 
     exits?
 
-TODO!       
+
 <details><summary>Show ...</summary>
 
-
+on.exit()
 
 </details> 
 
@@ -1464,7 +1467,7 @@ x <- k01(a = 1, 2, 3)
 \index{infix functions} 
 \indexc{\%\%}
 
-Infix functions get their name from the fact the function name comes inbetween its arguments, and hence have two arguments. R comes with a number of built-in infix operators: `:`, `::`, `:::`, `$`, `@`, `^`, `*`, `/`, `+`, `-`, `>`, `>=`, `<`, `<=`, `==`, `!=`, `!`, `&`, `&&`, `|`, `||`, `~`, `<-`, and `<<-`. You can also create your own infix functions that start and end with `%`. Base R uses this pattern to define `%%`, `%*%`, `%/%`, `%in%`, `%o%`, and `%x%`.
+Infix functions get their name from the fact the function name comes inbetween its arguments, and hence have two arguments. R comes with a number of built-in infix operators: `:`, `::`, `:::`, `$`, `@`, `^`, `*`, `/`, `+`, `-`, `>`, `>=`, `<`, `<=`, `==`, `!=`, `!`, `&`, `&&`, `|`, `||`, `~`, `<-`, and `<<-`. **You can also create your own infix functions that start and end with `%`. Base R uses this pattern to define `%%`, `%*%`, `%/%`, `%in%`, `%o%`, and `%x%`**.
 
 Defining your own infix function is simple. You create a two argument function and bind it to a name that starts and ends with `%`:
 
@@ -1473,7 +1476,7 @@ Defining your own infix function is simple. You create a two argument function a
 "new " %+% "string"
 ```
 
-The names of infix functions are more flexible than regular R functions: they can contain any sequence of characters except for `%`. You will need to escape any special characters in the string used to define the function, but not when you call it:
+The names of infix functions are more flexible than regular R functions: they can contain **any sequence of characters** except for `%`. You will **need to escape any special characters** in the string used to define the function, but not when you call it:
 
 ```{r}
 `% %` <- function(a, b) paste(a, b)
@@ -1490,7 +1493,7 @@ R's default precedence rules mean that infix operators are composed left to righ
 "a" %-% "b" %-% "c"
 ```
 
-There are two special infix functions that can be called with a single argument: `+` and `-`.  
+**There are two special infix functions that can be called with a single argument: `+` and `-`**.  
 ```{r}
 -1
 +10
@@ -1501,7 +1504,7 @@ There are two special infix functions that can be called with a single argument:
 \index{functions!replacement}
 \index{assignment!in replacement functions}
 
-Replacement functions act like they modify their arguments in place, and have the special name `xxx<-`. They must have arguments named `x` and `value`, and must return the modified object. For example, the following function modifies the second element of a vector: 
+**Replacement functions act like they modify their arguments in place, and have the special name `xxx<-`. They must have arguments named `x` and `value`, and must return the modified object.** For example, the following function modifies the second element of a vector: 
 
 ```{r}
 `second<-` <- function(x, value) {
@@ -1510,7 +1513,7 @@ Replacement functions act like they modify their arguments in place, and have th
 }
 ```
 
-Replacement functions are used by placing the function call on the left side of `<-`: 
+**Replacement functions are used by placing the function call on the left side of `<-`**: 
 
 ```{r}
 x <- 1:10
@@ -1518,7 +1521,7 @@ second(x) <- 5L
 x
 ```
 
-I say they act like they modify their arguments in place, because, as explained in Section \@ref(modify-in-place), they actually create a modified copy. We can see that by using `tracemem()`:
+I say they act like they **modify their arguments in place**, because, as explained in Section \@ref(modify-in-place), they actually **create a modified copy**. We can see that by using `tracemem()`:
 
 ```{r, eval = FALSE}
 x <- 1:10
@@ -1530,7 +1533,7 @@ second(x) <- 6L
 #> tracemem[0x7ffae61b5480 -> 0x7ffae73f0408]: second<- 
 ```
 
-If your replacement function needs additional arguments, place them between `x` and `value`, and call the replacement function with additional arguments on the left:
+**If your replacement function needs additional arguments, place them between `x` and `value`**, and call the replacement function with additional arguments on the left:
 
 ```{r}
 `modify<-` <- function(x, position, value) {
@@ -1557,7 +1560,7 @@ names(x)[2] <- "two"
 names(x)
 ```
 
-is translated into:
+is **translated into**:
 
 ```{r}
 `*tmp*` <- x
@@ -1595,9 +1598,9 @@ Finally, the most complex is the `function` function:
 
 * `function(arg1, arg2) {body}` (`` `function`(alist(arg1, arg2), body, env)``)
 
-Knowing the name of the function that underlies a special form is useful for getting documentation: `?(` is a syntax error; `` ?`(` `` will give you the documentation for parentheses.
+Knowing the name of the function that underlies a special form is useful for getting documentation: `?(` is a syntax error; **`` ?`(` `` will give you the documentation for parentheses**.
 
-All special forms are implemented as primitive functions (i.e. in C); this means printing these functions is not informative:
+**All special forms are implemented as primitive functions** (i.e. in C); this means printing these functions is not informative:
 
 ```{r}
 `for`
