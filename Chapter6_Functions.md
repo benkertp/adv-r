@@ -1320,9 +1320,9 @@ Most functions exit in one of two ways[^esoterica]: they either return a value, 
 \index{functions!return value}
 \indexc{return()}
 
-There are two ways that a function can return a value:
+There are **two ways that a function can return a value*:
 
-*   Implicitly, where the last evaluated expression is the return value:
+*   **Implicitly**, where the **last evaluated expression** is the return value:
 
     
     ```r
@@ -1339,7 +1339,7 @@ There are two ways that a function can return a value:
     #> [1] 10
     ```
 
-*   Explicitly, by calling `return()`:
+*   **Explicitly, by calling `return()`**:
 
     
     ```r
