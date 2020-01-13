@@ -36,6 +36,8 @@ arguments, body, environment
 
 [1] 11
 
+-> local environment first ...
+
 </details>  
     
 1.  How would you usually write this code?
@@ -49,6 +51,8 @@ arguments, body, environment
 ```r
 1 + 2 * 3
 ```
+
+-> prefix representation of infix function
 
 </details>    
     
