@@ -61,6 +61,7 @@ arguments, body, environment
     ```{r, eval = FALSE}
     mean(, TRUE, x = c(1:10, NA))
     ```
+-> arguments are matched by **exact** name, then with **unique prefixes**, and finally by **position**
     
 <details><summary>Show ...</summary>
 
