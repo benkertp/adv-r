@@ -90,10 +90,12 @@ lazy evaluation
    
 <details><summary>Show ...</summary>
 
-%xxx% <- function()
+
+```r
+`%xxx%` <- function()
 
 `xxx<-` <- function(x, value)
-
+```
 
 </details> 
 
@@ -191,7 +193,7 @@ environment(f02)
 
 I'll draw functions as in the following diagram. The black dot on the left is the environment. The two blocks to the right are the function arguments. I won't draw the body, because it's usually large, and doesn't help you understand the shape of the function.
 
-<img src="diagrams/functions/components.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" style="display: block; margin: auto;" />
+<img src="diagrams/functions/components.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
 
 Like all objects in R, functions can also possess any number of additional `attributes()`. One attribute used by base R is `srcref`, short for source reference. It points to the source code used to create the function. The **`srcref` is used for printing because, unlike `body()`, it contains code comments and other formatting**.  
 
@@ -258,7 +260,7 @@ f01 <- function(x) {
 }
 ```
 
-<img src="diagrams/functions/first-class.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" style="display: block; margin: auto;" />
+<img src="diagrams/functions/first-class.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" style="display: block; margin: auto;" />
 
 While you almost always create a function and then bind it to a **name, the binding step is not compulsory**. If you choose not to give a function a name, you get an __anonymous function__. This is useful when it's not worth the effort to figure out a name:
 
@@ -377,7 +379,7 @@ is.function(mean)
 mean
 #> function (x, ...) 
 #> UseMethod("mean")
-#> <bytecode: 0x3d19ea8>
+#> <bytecode: 0x3e1bbc8>
 #> <environment: namespace:base>
 mean.default
 #> function (x, trim = 0, na.rm = FALSE, ...) 
@@ -404,7 +406,7 @@ mean.default
 #>     }
 #>     .Internal(mean(x))
 #> }
-#> <bytecode: 0x2067ac8>
+#> <bytecode: 0x1b5bb48>
 #> <environment: namespace:base>
 ```
 
@@ -491,7 +493,7 @@ funs[which(nargs2 == 0)]
  a <- function(x) {b <- function(x) x; print(b)}
  a()
  #> function(x) x
- #> <environment: 0x7d05b08>
+ #> <environment: 0x77af5b0>
  ```
 </details>
 
@@ -1151,7 +1153,7 @@ promise. only evaluated when first need
       print(x)
     }
     show_time()
-    #> [1] "2020-01-11 23:51:24 CET"
+    #> [1] "2020-01-12 22:19:08 CET"
     ```
 <details><summary>Show ...</summary>
 lazy eval. stop() is never called
@@ -1304,7 +1306,7 @@ Using `...` comes with **two downsides**:
     plot(1:10, col = "red", pch = 20, xlab = "x", col.lab = "blue")
     ```
     
-    <img src="figure/unnamed-chunk-64-1.png" title="plot of chunk unnamed-chunk-64" alt="plot of chunk unnamed-chunk-64" width="70%" style="display: block; margin: auto;" />
+    <img src="figure/unnamed-chunk-65-1.png" title="plot of chunk unnamed-chunk-65" alt="plot of chunk unnamed-chunk-65" width="70%" style="display: block; margin: auto;" />
 <details><summary>Show ...</summary>
 ?plot 
 -> par?

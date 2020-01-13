@@ -88,10 +88,11 @@ lazy evaluation
    
 <details><summary>Show ...</summary>
 
-%xxx% <- function()
+```{r, eval = FALSE}
+`%xxx%` <- function()
 
 `xxx<-` <- function(x, value)
-
+```
 
 </details> 
 
