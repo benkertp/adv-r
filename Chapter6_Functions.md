@@ -85,7 +85,8 @@ mean(c(1:10, NA), na.rm = TRUE)
     ```
 <details><summary>Show ...</summary>
 
-lazy evaluation
+No. lazy evaluation: evaluated only on execution. 
+-> b is never "executed"
 
 </details> 
 
@@ -106,6 +107,7 @@ lazy evaluation
 
 1.  How do you ensure that cleanup action occurs regardless of how a function 
     exits?
+
 
 
 <details><summary>Show ...</summary>
