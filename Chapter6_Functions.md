@@ -708,7 +708,7 @@ funs[which(nargs2 == 0)]
 \index{magrittr|see {\texttt{\%>\%}}}
 \index{piping|see {\texttt{\%>\%}}}
 
-Base R provides two ways to compose multiple function calls. For example, imagine you want to compute the population standard deviation using `sqrt()` and `mean()` as building blocks:
+Base R provides **two ways to compose multiple function calls**. For example, imagine you want to compute the population standard deviation using `sqrt()` and `mean()` as building blocks:
 
 
 ```r
@@ -716,7 +716,7 @@ square <- function(x) x^2
 deviation <- function(x) x - mean(x)
 ```
 
-You either nest the function calls:
+You either **nest** the function calls:
 
 
 ```r
@@ -726,7 +726,7 @@ sqrt(mean(square(deviation(x))))
 #> [1] 0.274
 ```
 
-Or you save the intermediate results as variables:
+Or you save the **intermediate** results as variables:
 
 
 ```r
@@ -738,7 +738,7 @@ out
 #> [1] 0.274
 ```
 
-The magrittr package [@magrittr] provides a third option: the binary operator `%>%`, which is called the pipe and is pronounced as "and then".
+The magrittr package [@magrittr] provides a third option: the binary operator `%>%`, which is called the **pipe** and is pronounced as "and then".
 
 
 ```r
