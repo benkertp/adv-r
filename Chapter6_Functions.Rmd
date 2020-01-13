@@ -186,7 +186,7 @@ body(f02)
 environment(f02)
 ```
 
-I'll draw functions as in the following diagram. The black dot on the left is the environment. The two blocks to the right are the function arguments. I won't draw the body, because it's usually large, and doesn't help you understand the shape of the function.
+I'll draw functions as in the following diagram. The **black dot** on the left is the **environment**. The **two blocks** to the right are the **function arguments**. I won't draw the body, because it's usually large, and doesn't help you understand the shape of the function.
 
 ```{r, echo = FALSE, out.width = NULL}
 knitr::include_graphics("diagrams/functions/components.png")
@@ -233,7 +233,7 @@ Primitive functions are **only found in the base package**. While they have cert
 \index{functions!anonymous} 
 \index{anonymous functions}
 
-**It's very important to understand that R functions are objects in their own right**, a language property often called "first-class functions". Unlike in many other languages, there is no special syntax for defining and naming a function: **you simply create a function object (with `function`) and bind it to a name with `<-`**:
+**It's very important to understand that R functions are objects in their own right**, a language property often called **"first-class functions"**. Unlike in many other languages, there is no special syntax for defining and naming a function: **you simply create a function object (with `function`) and bind it to a name with `<-`**:
 
 ```{r}
 f01 <- function(x) {
@@ -265,7 +265,7 @@ funs <- list(
 
 funs$double(10)
 ```
-print
+
 In R, you'll often see functions called __closures__. This name reflects the fact that **R functions capture, or enclose, their environments**, which you'll learn more about in Section \@ref(function-environments).
 
 <!-- PB / TODO: Define closures more precisely ? -->
@@ -273,7 +273,7 @@ In R, you'll often see functions called __closures__. This name reflects the fac
 ### Invoking a function
 \indexc{do.call()}
 
-You normally call a function by placing its arguments, wrapped in parentheses, after its name: `mean(1:10, na.rm = TRUE)`. But what happens if you have the arguments already in a data structure?
+You normally **call a function** by placing its arguments, wrapped in parentheses, after its name: `mean(1:10, na.rm = TRUE)`. But what happens if you have the arguments already in a data structure?
 
 ```{r}
 args <- list(1:10, na.rm = TRUE)
@@ -299,7 +299,7 @@ We'll come back to this idea in Section \@ref(tidy-dots).
  
 </details>  
 
-1.  It's possible (although typically not useful) to call an anonymous function.
+1.  It's possible (although typically not useful) to **call an anonymous function**.
     Which of the two approaches below is correct? Why?
 
     ```{r, result = "hide"}
@@ -313,8 +313,8 @@ We'll come back to this idea in Section \@ref(tidy-dots).
 
 </details>  
 
-1. A good rule of thumb is that an anonymous function should fit on one line 
-   and shouldn't need to use `{}`. Review your code. Where could you have 
+1. A good **rule of thumb is that an anonymous function should fit on one line 
+   and shouldn't need to use `{}`**. Review your code. Where could you have 
    used an anonymous function instead of a named function? Where should you 
    have used a named function instead of an anonymous function?
    
@@ -361,7 +361,7 @@ mean.default
     
 <details><summary>Show ...</summary>
 
-```r
+```{r, result = "hide"}
 
 objs <- mget(ls("package:base", all = TRUE), inherits = TRUE)
 funs <- Filter(is.function, objs)
@@ -436,14 +436,14 @@ a()
 \index{magrittr|see {\texttt{\%>\%}}}
 \index{piping|see {\texttt{\%>\%}}}
 
-Base R provides two ways to compose multiple function calls. For example, imagine you want to compute the population standard deviation using `sqrt()` and `mean()` as building blocks:
+Base R provides **two ways to compose multiple function calls**. For example, imagine you want to compute the population standard deviation using `sqrt()` and `mean()` as building blocks:
 
 ```{r}
 square <- function(x) x^2
 deviation <- function(x) x - mean(x)
 ```
 
-You either nest the function calls:
+You either **nest** the function calls:
 
 ```{r}
 x <- runif(100)
@@ -451,7 +451,7 @@ x <- runif(100)
 sqrt(mean(square(deviation(x))))
 ```
 
-Or you save the intermediate results as variables:
+Or you save the **intermediate** results as variables:
 
 ```{r}
 out <- deviation(x)
@@ -461,7 +461,7 @@ out <- sqrt(out)
 out
 ```
 
-The magrittr package [@magrittr] provides a third option: the binary operator `%>%`, which is called the pipe and is pronounced as "and then".
+The magrittr package [@magrittr] provides a third option: the binary operator `%>%`, which is called the **pipe** and is pronounced as "and then".
 
 ```{r}
 library(magrittr)

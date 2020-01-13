@@ -198,7 +198,7 @@ environment(f02)
 #> <environment: R_GlobalEnv>
 ```
 
-I'll draw functions as in the following diagram. The black dot on the left is the environment. The two blocks to the right are the function arguments. I won't draw the body, because it's usually large, and doesn't help you understand the shape of the function.
+I'll draw functions as in the following diagram. The **black dot** on the left is the **environment**. The **two blocks** to the right are the **function arguments**. I won't draw the body, because it's usually large, and doesn't help you understand the shape of the function.
 
 <img src="diagrams/functions/components.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" style="display: block; margin: auto;" />
 
@@ -258,7 +258,7 @@ Primitive functions are **only found in the base package**. While they have cert
 \index{functions!anonymous} 
 \index{anonymous functions}
 
-**It's very important to understand that R functions are objects in their own right**, a language property often called "first-class functions". Unlike in many other languages, there is no special syntax for defining and naming a function: **you simply create a function object (with `function`) and bind it to a name with `<-`**:
+**It's very important to understand that R functions are objects in their own right**, a language property often called **"first-class functions"**. Unlike in many other languages, there is no special syntax for defining and naming a function: **you simply create a function object (with `function`) and bind it to a name with `<-`**:
 
 
 ```r
@@ -292,7 +292,7 @@ funs <- list(
 funs$double(10)
 #> [1] 20
 ```
-print
+
 In R, you'll often see functions called __closures__. This name reflects the fact that **R functions capture, or enclose, their environments**, which you'll learn more about in Section \@ref(function-environments).
 
 <!-- PB / TODO: Define closures more precisely ? -->
@@ -300,7 +300,7 @@ In R, you'll often see functions called __closures__. This name reflects the fac
 ### Invoking a function
 \indexc{do.call()}
 
-You normally call a function by placing its arguments, wrapped in parentheses, after its name: `mean(1:10, na.rm = TRUE)`. But what happens if you have the arguments already in a data structure?
+You normally **call a function** by placing its arguments, wrapped in parentheses, after its name: `mean(1:10, na.rm = TRUE)`. But what happens if you have the arguments already in a data structure?
 
 
 ```r
@@ -329,7 +329,7 @@ We'll come back to this idea in Section \@ref(tidy-dots).
  
 </details>  
 
-1.  It's possible (although typically not useful) to call an anonymous function.
+1.  It's possible (although typically not useful) to **call an anonymous function**.
     Which of the two approaches below is correct? Why?
 
     
@@ -346,8 +346,8 @@ We'll come back to this idea in Section \@ref(tidy-dots).
 
 </details>  
 
-1. A good rule of thumb is that an anonymous function should fit on one line 
-   and shouldn't need to use `{}`. Review your code. Where could you have 
+1. A good **rule of thumb is that an anonymous function should fit on one line 
+   and shouldn't need to use `{}`**. Review your code. Where could you have 
    used an anonymous function instead of a named function? Where should you 
    have used a named function instead of an anonymous function?
    
@@ -433,19 +433,216 @@ mean.default
     
 <details><summary>Show ...</summary>
 
+
 ```r
 
 objs <- mget(ls("package:base", all = TRUE), inherits = TRUE)
 funs <- Filter(is.function, objs)
 
 str(funs)
+#> List of 1302
+#>  $ -                                 :function (e1, e2)  
+#>  $ -.Date                            :function (e1, e2)  
+#>  $ -.POSIXt                          :function (e1, e2)  
+#>  $ :                                 :.Primitive(":") 
+#>  $ ::                                :function (pkg, name)  
+#>  $ :::                               :function (pkg, name)  
+#>  $ !                                 :function (x)  
+#>  $ !.hexmode                         :function (a)  
+#>  $ !.octmode                         :function (a)  
+#>  $ !=                                :function (e1, e2)  
+#>  $ .__H__.cbind                      :function (..., deparse.level = 1)  
+#>  $ .__H__.rbind                      :function (..., deparse.level = 1)  
+#>  $ ...elt                            :function (n)  
+#>  $ ...length                         :function ()  
+#>  $ ..getNamespace                    :function (name, where)  
+#>  $ .amatch_bounds                    :function (x = 0.1)  
+#>  $ .amatch_costs                     :function (x = NULL)  
+#>  $ .bincode                          :function (x, breaks, right = TRUE, ..
+#>  $ .C                                :function (.NAME, ..., NAOK = FALSE,..
+#>  $ .cache_class                      :function (class, extends)  
+#>  $ .Call                             :function (.NAME, ..., PACKAGE)  
+#>  $ .Call.graphics                    :function (.NAME, ..., PACKAGE)  
+#>  $ .col                              :function (dim)  
+#>  $ .colMeans                         :function (x, m, n, na.rm = FALSE)  
+#>  $ .colSums                          :function (x, m, n, na.rm = FALSE)  
+#>  $ .Date                             :function (xx, cl = "Date")  
+#>  $ .decode_numeric_version           :function (x)  
+#>  $ .Defunct                          :function (new, package = NULL, msg)  
+#>  $ .deparseOpts                      :function (control)  
+#>  $ .Deprecated                       :function (new, package = NULL, msg,..
+#>  $ .detach                           :function (pos)  
+#>  $ .difftime                         :function (xx, units, cl = "difftim"..
+#>  $ .doSortWrap                       :function (vec, decr, nalast, noNA =..
+#>  $ .doTrace                          :function (expr, msg)  
+#>  $ .doWrap                           :function (vec, decr, nalast, noNA =..
+#>  $ .dynLibs                          :function (new)  
+#>  $ .encode_numeric_version           :function (x)  
+#>  $ .expand_R_libs_env_var            :function (x)  
+#>  $ .External                         :function (.NAME, ..., PACKAGE)  
+#>  $ .External.graphics                :function (.NAME, ..., PACKAGE)  
+#>  $ .External2                        :function (.NAME, ..., PACKAGE)  
+#>  $ .find.package                     :function (...)  
+#>  $ .First.sys                        :function ()  
+#>  $ .format.zeros                     :function (x, zero.print, nx = suppr..
+#>     warn.non.fitting = TRUE)  
+#>  $ .Fortran                          :function (.NAME, ..., NAOK = FALSE,..
+#>  $ .getNamespace                     :function (name)  
+#>  $ .getNamespaceInfo                 :function (ns, which)  
+#>  $ .getRequiredPackages              :function (file = "DESCRIPTION", lib..
+#>  $ .getRequiredPackages2             :function (pkgInfo, quietly = FALSE,..
+#>  $ .gt                               :function (x, i, j)  
+#>  $ .gtn                              :function (x, strictly)  
+#>  $ .handleSimpleError                :function (h, msg, call)  
+#>  $ .Internal                         :function (call)  
+#>  $ .isMethodsDispatchOn              :function (onOff = NULL)  
+#>  $ .isOpen                           :function (srcfile)  
+#>  $ .kappa_tri                        :function (z, exact = FALSE, LINPACK..
+#>  $ .kronecker                        :function (X, Y, FUN = "*", make.dim..
+#>  $ .Last.value                       :function ()  
+#>  $ .libPaths                         :function (new)  
+#>  $ .make_numeric_version             :function (x, strict = TRUE, regexp,..
+#>  $ .makeMessage                      :function (..., domain = NULL, appen..
+#>  $ .mapply                           :function (FUN, dots, MoreArgs)  
+#>  $ .maskedMsg                        :function (same, pkg, by)  
+#>  $ .mergeExportMethods               :function (new, ns)  
+#>  $ .mergeImportMethods               :function (impenv, expenv, metaname)  
+#>  $ .NotYetImplemented                :function ()  
+#>  $ .NotYetUsed                       :function (arg, error = TRUE)  
+#>  $ .OptRequireMethods                :function ()  
+#>  $ .packages                         :function (all.available = FALSE, li..
+#>  $ .packageStartupMessage            :function (message, call = NULL)  
+#>  $ .path.package                     :function (...)  
+#>  $ .POSIXct                          :function (xx, tz = NULL, cl = c("P"..
+#>  $ .POSIXlt                          :function (xx, tz = NULL, cl = c("P"..
+#>  $ .Primitive                        :function (name)  
+#>  $ .primTrace                        :function (obj)  
+#>  $ .primUntrace                      :function (obj)  
+#>  $ .readRDS                          :function (...)  
+#>  $ .rmpkg                            :function (pkg)  
+#>  $ .row                              :function (dim)  
+#>  $ .row_names_info                   :function (x, type = 1L)  
+#>  $ .rowMeans                         :function (x, m, n, na.rm = FALSE)  
+#>  $ .rowNamesDF<-                     :function (x, make.names = FALSE, va..
+#>  $ .rowSums                          :function (x, m, n, na.rm = FALSE)  
+#>  $ .saveRDS                          :function (...)  
+#>  $ .Script                           :function (interpreter, script, args..
+#>  $ .set_row_names                    :function (n)  
+#>  $ .signalSimpleWarning              :function (msg, call)  
+#>  $ .standard_regexps                 :function ()  
+#>  $ .subset                           :function (x, ...)  
+#>  $ .subset2                          :function (x, ...)  
+#>  $ .TAOCP1997init                    :function (seed)  
+#>  $ .traceback                        :function (x = NULL)  
+#>  $ .tryResumeInterrupt               :function ()  
+#>  $ .valid.factor                     :function (object)  
+#>  $ (                                 :.Primitive("(") 
+#>  $ [                                 :.Primitive("[") 
+#>  $ [.AsIs                            :function (x, i, ...)  
+#>  $ [.data.frame                      :function (x, i, j, drop = if (missi..
+#>     1)  
+#>  $ [.Date                            :function (x, ..., drop = TRUE)  
+#>   [list output truncated]
 nargs <- as.numeric(lapply(funs, function(x) length(formals(x))))
 nargs
+#>    [1]  0  2  2  0  2  2  0  1  1  0  2  2  0  0  2  1  1  4  0  0  0  0  1
+#>   [24]  4  4  2  1  3  1  4  1  3  4  2  4  1  1  1  0  0  0  1  0  5  0  1
+#>   [47]  2  4  4  3  2  3  0  0  1  5  5  0  1  4  3  3  3  2  3  0  2  0  2
+#>   [70]  2  1  3  3  0  0  0  1  1  1  2  4  3  4  1  4  1  2  0  0  0  1  1
+#>   [93]  0  1  0  0  3  4  3  3  3  2  3  2  3  2  3  2  3  4  3  5  2  0  3
+#>  [116]  3  2  3  3  3  0  4  3  3  3  0  4  3  3  4  3  4  0  0  0  0  2  0
+#>  [139]  2  0  2  2  0  0  0  0  2  2  2  0  0  2  2  0  0  0  0  0  0  0  0
+#>  [162]  0  2  2  0  0  0  2  2  0  3  7  0  0  0  2  3  8  7  1  0  3  4  3
+#>  [185]  4  3  4  3  3  5  8  5  4  4  4  1  0  3  5  4  4  5  0  2  2  3  4
+#>  [208]  5  3  4  0  3  4  2  2  0  0  2  2  2  2  2  2  2  2  2  4  0  4  4
+#>  [231]  4  3  5  3  5  2  5  5  5  8  5  6  5  5  5  5  5  5  4  5  7  2  5
+#>  [254]  2  5  2  2  3  3  2  3  0  3  2  0  2  2  1  2  3  1  0  2  2  2  2
+#>  [277]  4  2  2  2  2  2  0  2  2  3  2  2  2  1  2  2  0  1  1  1  1  1  3
+#>  [300]  2  3  4  3  3  6  2  4  2  4  3  1  0  2  2  1  2  2  2  2  0  0  2
+#>  [323]  2  3  3  6  0  2  0  4  5  0  5  0  0  0  4  3  5  0  1  3  2  3  2
+#>  [346]  2  2  2  2  2  1  2  2  2  2  1  3  2  0  0  1  1  1  1  5  5  5  4
+#>  [369]  0  2  2  2  2  2  2  2  0  1  1  2  6  2  2  0  3  1  3  1  3  1  3
+#>  [392]  2  5  3  2  0  0  1  2  3  2  2  0  2  3  3  2  3  1  1  2  5  1  1
+#>  [415]  1  1  1  3  2  0  0  0  0  0  2  0  0  0  0  0  3  2  6  8  6  1  6
+#>  [438]  2  0  4  1  4  0  4  5  2  5  3  3  2  4  2  2  4  4  2  4  4  0  0
+#>  [461]  1  0  0  1  0  2  8  4  1  1  4  1  1  3  2  1  2  4  3  6  3  5  4
+#>  [484]  5  5  3  3  3  4  1  4  5  4  0  0  0  5  1  2  2  1  1  1  0  1  1
+#>  [507]  4  3  2  3  6  0  3  0  0  0  6  1  4  6  2  2  1  6  2  1  2  2  1
+#>  [530]  1  2  1  2  6  1  2  2  4  4  5  1  2  0  1  1  0  1  0  2  3  2  3
+#>  [553]  3  2 16  2  2  4  3  2  2  3  2  5  4  5  3 15  5  5  0  0  3  0  1
+#>  [576]  1  3  5  5  0  2  1  1  2  2  2  2  0  2  1  0  1  1  1  2  1  1  1
+#>  [599]  4  2  0  3  0  2  3  0  5  0  6  8  6  8  1  7  4  4  1  6  0  1  1
+#>  [622]  8  1  0  3  0  4  3  1  4  0  2  1  3  2  0  2  1  0  0  0  0  0  1
+#>  [645]  0  2  0  0  1  0  0  0  0  0  0  3  0  0  0  1  1  1  2  2  2  2  0
+#>  [668]  0  0  0  1  1  1  1  0  1  1  0  1  1  0  0  0  0  0  1  3  2  1  1
+#>  [691]  2  1  1  1  1  7  7  2  1  0  1  2  4  1  3  2  3  3  2  5  2  2  5
+#>  [714]  0  0  0  3  2  2  3  3  3  0  2  2  0  1  0  2  2  2  2  2  2  1  1
+#>  [737]  0  2  1  0  0 13  6  4  0  0  0  3  8  5  3  0  0  6  2  2  2  0  0
+#>  [760]  0  0  2  1  2  6  3  2  3  2  5  2  2  4  3  4  2  2  2  2  2  2  5
+#>  [783]  0  2  2  2  4  2  2  2  2  1  1  2  3  0  3 13  3  3  5  0  0  0  1
+#>  [806]  2  2  2  2  2  0  1  0  2  2  4  4  7  4  0  4  1  1  1  3  0  3  4
+#>  [829]  1  2  2  3  1  1  0  1  2  0  6  0  0  1  0  2  4  3  3  3  2  2  2
+#>  [852]  2  2  2  2  1  4  2  4  2  2  2  3  3  2  1  1  2  1  7  3  3  2  1
+#>  [875]  2  0  3  4  2  2  2  2  1  0  4  2  8 13  2  2  3  2  2  7  3  9  3
+#>  [898]  2  2  2  2  2  5  3  2  2  2  2  4  2  2  2  5  5  2  2  4  2  2  3
+#>  [921]  3  2  3  8  4  7  0  0  2  4  2  4  1  3  2  2  4  3  3  2  2  2  2
+#>  [944]  3  3  2  2  2  3  0  2  1  0  0  3  3  6  1  2  1  2  1  2  2  5  4
+#>  [967]  0  4  6  3  1  6  2  1  1  5  3  6  6  4  3  3  4  5  1  0  2  2  2
+#>  [990]  2  2  2  2  0  3  3  9  3  1  1  0  0  1  1  1  1  5  3  1  0  2  2
+#> [1013]  2  1  1  1  2  2  2  3  3  2  4  5  5  3  4  5  5 10  5  6  3  3 22
+#> [1036]  0  0  2  5  1  0  0  6  6  0  6  1  6  4  2  2  3  3  2  3  1  1  2
+#> [1059]  0  1  0  2  2  2  2  2  0  1  0  4  1  0  2  7  3  3  5  3  3  4  6
+#> [1082]  5  4 16  4  4  4  6  4  5  5  5  2  0  2  3  2  4  2  0  2  0  0  0
+#> [1105]  3  3  1  0  1  1  5  3  2  5  2  2  2  7  7  2  5  3  5  0  3  4  3
+#> [1128]  4  0  2  2  4  2  3  2  4  2  3  2  2  2  2  3  2  3  2  2  2  3  2
+#> [1151]  2  1  1  1  1  4  6  0  1  0  3  0  1  0  1  3  1  0  2  0  2  0  0
+#> [1174]  0  1  0  1  1  1  2  2  1  6  0  0  1  1  1  1 10  4  2 11  1  1  1
+#> [1197]  5  2  0  0  0  6  3  2  1  3  4  1  1  2  2  3  1  8  2  0  1  2  2
+#> [1220]  2  0  3  0  2  3  2  2  3  3  1  0  2  2  3  5  4  5  5  3  3  3  1
+#> [1243]  1  2  2  1  3  3  1  2  2  2  3  3  0  4  2  6  0  1  1  1  5  2  4
+#> [1266]  5  4  1  2  2  2  3  1  1  0  3  3  9  2  3  3  4  2  1  5  7  5  5
+#> [1289]  4  2  3  0  1  1  1  1  1  1  1  1  4  2
 
 nargs[which.max(nargs)]
+#> [1] 22
 
 funs[which.max(nargs)]
-
+#> $scan
+#> function (file = "", what = double(), nmax = -1L, n = -1L, sep = "", 
+#>     quote = if (identical(sep, "\n")) "" else "'\"", dec = ".", 
+#>     skip = 0L, nlines = 0L, na.strings = "NA", flush = FALSE, 
+#>     fill = FALSE, strip.white = FALSE, quiet = FALSE, blank.lines.skip = TRUE, 
+#>     multi.line = TRUE, comment.char = "", allowEscapes = FALSE, 
+#>     fileEncoding = "", encoding = "unknown", text, skipNul = FALSE) 
+#> {
+#>     na.strings <- as.character(na.strings)
+#>     if (!missing(n)) {
+#>         if (missing(nmax)) 
+#>             nmax <- n/pmax(length(what), 1L)
+#>         else stop("either specify 'nmax' or 'n', but not both.")
+#>     }
+#>     if (missing(file) && !missing(text)) {
+#>         file <- textConnection(text, encoding = "UTF-8")
+#>         encoding <- "UTF-8"
+#>         on.exit(close(file))
+#>     }
+#>     if (is.character(file)) 
+#>         if (file == "") 
+#>             file <- stdin()
+#>         else {
+#>             file <- if (nzchar(fileEncoding)) 
+#>                 file(file, "r", encoding = fileEncoding)
+#>             else file(file, "r")
+#>             on.exit(close(file))
+#>         }
+#>     if (!inherits(file, "connection")) 
+#>         stop("'file' must be a character string or connection")
+#>     .Internal(scan(file, what, nmax, sep, dec, quote, skip, nlines, 
+#>         na.strings, flush, fill, strip.white, quiet, blank.lines.skip, 
+#>         multi.line, comment.char, allowEscapes, encoding, skipNul))
+#> }
+#> <bytecode: 0x16de2a0>
+#> <environment: namespace:base>
 ```
 
 </details>  
@@ -500,7 +697,7 @@ funs[which(nargs2 == 0)]
  a <- function(x) {b <- function(x) x; print(b)}
  a()
  #> function(x) x
- #> <environment: 0x77af5b0>
+ #> <environment: 0x6f50388>
  ```
 </details>
 
@@ -1160,7 +1357,7 @@ promise. only evaluated when first need
       print(x)
     }
     show_time()
-    #> [1] "2020-01-12 22:19:08 CET"
+    #> [1] "2020-01-13 08:27:46 CET"
     ```
 <details><summary>Show ...</summary>
 lazy eval. stop() is never called
@@ -1313,7 +1510,7 @@ Using `...` comes with **two downsides**:
     plot(1:10, col = "red", pch = 20, xlab = "x", col.lab = "blue")
     ```
     
-    <img src="figure/unnamed-chunk-65-1.png" title="plot of chunk unnamed-chunk-65" alt="plot of chunk unnamed-chunk-65" width="70%" style="display: block; margin: auto;" />
+    <img src="figure/unnamed-chunk-66-1.png" title="plot of chunk unnamed-chunk-66" alt="plot of chunk unnamed-chunk-66" width="70%" style="display: block; margin: auto;" />
 <details><summary>Show ...</summary>
 ?plot 
 -> par?
